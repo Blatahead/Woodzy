@@ -1,0 +1,324 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>LéoNoël</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="icon" type="image/png" href="./img/logo_leonoel_round.png">
+	<script type="module" src="app.mjs"></script>
+</head>
+
+<body>
+	<header>
+		
+		<div class="nav-bar">
+			<p class="startup-name">Woodzy</p>
+			<div class="nav-logo"><img id="nav-logo" src="./img/logo_leonoel_ia.jpg" alt="Logo LeoNoel"></div>
+			<div class="burger-menu" onclick="BurgerTranslate()">
+				<span class="burger-line"></span>
+				<span class="burger-line"></span>
+				<span class="burger-line"></span>
+			</div>
+			<ul class="navbar-nav" id="navbar-nav">
+				<li><a href="#products" onclick="CloseNavBar()">Nos produits</a></li>
+				<li><a href="#team" onclick="CloseNavBar()">Équipe</a></li>
+				<li><a href="#history" onclick="CloseNavBar()">Notre histoire</a></li>
+				<li><a href="#footer" onclick="CloseNavBar()">Contact</a></li>
+			</ul>
+		</div>
+	</header>
+	<div id="alerte">Profitez d'une meilleure expérience en mode portrait</div>
+	<div class="home-screen" id="home-screen">
+		<div class="text-welcome">
+			<p id="pre-title">L'art du bois</p>
+			<p id="title">Réinventons</p>
+			<p id="title">le puzzle</p>
+			<p id="subtitle">Pièces de décoration 3D uniques, </p>
+			<p id="subtitle">minucieusement gravées et découpées dans du bois</p>
+		</div>
+		<div class="case-logo">
+			<img id="image" src="./img/product_tree.png" alt="Logo LeoNoel">
+		</div>
+		<div class="wavy-button">
+			<span style="--i:1;">O</span>
+			<span style="--i:2;">f</span>
+			<span style="--i:3;">f</span>
+			<span style="--i:4;">r</span>
+			<span style="--i:5;">e</span>
+			<span style="--i:6;">z</span>
+			<span style="--i:7;"> </span>
+			<span style="--i:8;">v</span>
+			<span style="--i:9;">o</span>
+			<span style="--i:10;">u</span>
+			<span style="--i:11;">s</span>
+			<span style="--i:12;"> </span>
+			<span style="--i:13;">n</span>
+			<span style="--i:14;">o</span>
+			<span style="--i:15;">s</span>
+			<span style="--i:16;"> </span>
+			<span style="--i:17;">p</span>
+			<span style="--i:18;">u</span>
+			<span style="--i:19;">z</span>
+			<span style="--i:20;">z</span>
+			<span style="--i:21;">l</span>
+			<span style="--i:22;">e</span>
+			<span style="--i:23;">s</span>
+		</div>
+	</div>
+	<!-- <div class="down-arrow-to-products">
+		<a href="#products"><i class="fas fa-tree down-arrow__icon" id="down-arrow-to-products"></i></a>
+	</div> -->
+	<div class="preorder-form" id="preorder-form">
+
+		<div class="container">
+			<span class="close" onclick="closeForm()">&times;</span>
+			<div id="welcomePage" class="page">
+				<h1>Bienvenue !</h1>
+				<button id="startButton" onclick="startForm()">Commencer</button>
+			</div>
+
+			<div id="formPage" class="page hidden">
+				<form id="preorderForm">
+					<div class="question visible" id="firstQuestion">
+						<label for="firstName">Quel est votre prénom ?<span>*</span></label>
+						<input type="text" id="firstName" required>
+					</div>
+
+					<div class="question hidden">
+						<label for="lastName">Quel est votre nom de famille ?<span>*</span></label>
+						<input type="text" id="lastName" required>
+					</div>
+
+					<div class="question hidden">
+						<label for="email">Quelle est votre adresse e-mail ?<span>*</span></label>
+						<input type="email" id="email" required>
+						<p>Nous pourrons revenir vers vous pour la suite.</p>
+					</div>
+
+					<div class="question hidden" id="lastQuestion">
+						<label for="quantity">Combien de sapins souhaitez-vous précommander ?<span>*</span></label>
+						<select id="quantity" required>
+							<option value="1">1 - 19,99€</option>
+							<option value="2">2 - 39,98€</option>
+							<option value="3">3 - 59,97€</option>
+						</select>
+						<p>Le prix est de 19,99 €/unité.</p>
+					</div>
+
+					<div class="question hidden">
+						<label for="postalCode">Quel est votre code postal ?<span>*</span></label>
+						<input type="text" id="postalCode" pattern="[0-9]{5}" required>
+					</div>
+
+					<div class="navigation">
+						<button id="previousButton" type="button" onclick="previousQuestion()">Précédent</button>
+						<button id="continueButton" type="button" onclick="nextQuestion()">Continuer</button>
+						<button id="submitButton" type="submit" class="hidden">Submit</button>
+					</div>
+				</form>
+			</div>
+
+			<div id="confirmationPage" class="page hidden">
+				<h2>Merci ! Votre précommande a été envoyée avec succès.</h2>
+			</div>
+		</div>
+	</div>
+	<div class="products" id="products">
+		<div class="products-title">
+			<p id="products-title">Nos produits</p>
+		</div>
+		<div class="grid">
+			<div class="card"><img src="./img/logo_leonoel_ia.jpg" class="logo_product" alt="">
+				<img src="./img/product_tree.png" class="img_product" alt="">
+				<div id="popup" class="popup">
+					<span class="close" onclick="closePopup()">&times;</span>
+					<div class="sketchfab-embed-wrapper">
+						<iframe title="ChristmasTree" frameborder="0" allowfullscreen mozallowfullscreen="true"
+							webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
+							xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+							src="https://sketchfab.com/models/11e6289058a74dc4951ce481c0c31314/embed">
+						</iframe>
+					</div>
+				</div>
+				<button class="preorder-button" role="button" id="preorder-button">Pré commander</button>
+				<p>Sapin de Noël</p>
+			</div>
+			<div class="card"><img src="./img/logo_leonoel_ia.jpg" class="logo_product" alt=""><img
+					src="./img/product_tree.png" class="img_product" id="in-creation" alt="">
+				<p>En création</p>
+			</div>
+			<div class="card"><img src="./img/logo_leonoel_ia.jpg" class="logo_product" alt=""><img
+					src="./img/product_tree.png" class="img_product" id="in-creation" alt="">
+				<p>En création</p>
+			</div>
+		</div>
+		<div class="down-arrow-to-team">
+			<a href="#team"><i class="fas fa-tree down-arrow__icon-to-team" id="down-arrow-to-team"></i></a>
+		</div>
+	</div>
+	<div class="team" id="team">
+		<div class="team-title">
+			<p id="team-title">Notre équipe</p>
+		</div>
+		<div class="team-grid">
+			<div class="leonie">
+				<section class="hidden">
+					<div class="profil">
+						<img src="./img/leonie_pp_round.png" alt="Photo Profil Léonie">
+						<h1>Léonie</h1>
+					</div>
+					<div class="description-team">
+						<p>Ouvrez un dictionnaire au mot « sourire » et vous trouverez Léonie. Son dynamisme contagieux
+							illumine chaque projet. Spécialiste dans la gestion et l’administration, Léonie marie avec
+							brio
+							sérieux et rigueur dans toutes ses missions. Son autonomie et sa prise d'initiative hors
+							pair ne
+							donnent aucune chance aux mails et à la paperasse. Avec une organisation digne de ce nom
+							notre
+							équipe est sûre de tendre vers la réussite. Avec elle, chaque projet devient une aventure
+							prometteuse et fructueuse. Une véritable manager qui transforme les défis en opportunités.
+						</p>
+						<h3>« Cela semble toujours impossible, jusqu’à ce qu’on le fasse ». Nelson Mandela</h3>
+					</div>
+				</section>
+			</div>
+			<div class="antonin">
+				<section class="hidden">
+					<div class="description-team">
+						<p>Lui c’est Antonin, une véritable pépite au sein de notre équipe ! Il incarne la quintessence
+							du
+							professionnalisme, de la rigueur, et de la détermination. Sa maîtrise de l'informatique en
+							fait
+							un atout majeur, et son talent en graphisme ouvre de nouvelles perspectives créatives.
+							Toujours
+							prêt à comprendre et à surpasser les attentes, Antonin est le collaborateur idéal pour mener
+							notre équipe vers l'excellence. Sa polyvalence et son engagement font de lui une force
+							motrice,
+							prêt à surmonter tous les obstacles pour atteindre l'excellence. Avec Anto à nos côtés,
+							l'innovation et la réussite sont assurées ! </p>
+						<h3>“Je ne perds jamais, soit je gagne, soit j’apprends », Nelson Mandela.</h3>
+					</div>
+					<div class="profil">
+						<img src="./img/pp_anto_round.png" alt="Photo profil Antonin">
+						<h1>Antonin</h1>
+					</div>
+				</section>
+			</div>
+			<div class="raphael">
+				<section class="hidden">
+					<div class="profil">
+						<img src="./img/pp_raph_round.png" alt="Photo profil Antonin">
+						<h1>Raphaël</h1>
+					</div>
+					<div class="description-team">
+						<p>Découvrez Raphaël, notre atout secret et associé exceptionnel. Sérieux et rigoureux, il gère
+							la
+							modélisation comme personne, et apporte une compréhension technique à chacun de ses projets.
+							Mêlant mystère et professionnalisme, Raphaël excelle dans la discrétion tout en
+							accomplissant
+							avec aisance toutes les tâches qui lui sont confiées. Sa réputation de résoudre sans prise
+							de
+							tête les défis informatiques en fait un précieux collaborateur. Doté d'une capacité
+							remarquable
+							à concrétiser les demandes, il se distingue par sa fiabilité et son dévouement exemplaire.
+							En
+							tant qu'associé, il incarne l'excellence discrète qui donne à notre équipe une longueur
+							d'avance. Confiez-lui vos projets et découvrez la puissance de la discrétion alliée à un
+							professionnalisme inégalé. </p>
+						<h3>«Ce n'est pas d'où vous venez qui compte, mais où vous allez »Ella Fitzgerald</h3>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="down-arrow-to-history">
+			<a href="#history"><i class="fas fa-tree down-arrow__icon-to-history" id="down-arrow-to-history"></i></a>
+		</div>
+	</div>
+	<div class="history" id="history">
+		<div class="history-title">
+			<p id="history-title">Notre histoire</p>
+		</div>
+		<div class="history-text" id="history-text">
+			<p id="p1">Au cœur d'un petit village enneigé vivait une famille d'artistes de Noël, maîtres dans la
+				fabrication de puzzles enchanteurs. Le Père Noël dirigeait avec sagesse cet atelier magique où régnait
+				la Mère Flocon, douée d'une créativité sans bornes. Le jeune Léo, passionné par Noël, découpait avec
+				précision chaque pièce, vibrant à l'idée de partager la magie des fêtes. Pendant ce temps, dans un
+				village voisin, des enfants désœuvrés rêvaient d'un Noël avec des cadeaux et un sapin.</p>
+			<p id="p2">Touché, Léo décida de leur apporter la magie de Noël avec ses créations. Le jour du réveillon,
+				les enfants s'émerveillèrent devant les puzzles offerts par Léo, répandant ainsi la magie de Noël dans
+				tout le village. Une tradition est née : chaque Noël, les enfants choisissaient un puzzle pour célébrer
+				la magie de Noël, perpétuant ainsi l'héritage de la famille Noël, qui, année après année, entretenait la
+				magie de Noël.</p>
+		</div>
+	</div>
+	<div class="contacts">
+		<div class="contacts-title"></div>
+	</div>
+
+	<footer class="footer" id="footer">
+		<div class="social">
+			<div class="social-leonie">
+				<ul class="social-icon">
+					<li class="social-icon__item"><a class="social-icon__link"
+							href="https://www.linkedin.com/in/léonie-chapelle-44a651234/" target="_blank"><ion-icon
+								name="logo-linkedin"></ion-icon></a></li>
+					<li class="social-icon__item"><a class="social-icon__link"
+							href="https://www.instagram.com/leonie_chapelle/" target="_blank"><ion-icon
+								name="logo-instagram"></ion-icon></a></li>
+				</ul>
+				<p>Léonie</p>
+			</div>
+			<div class="social-antonin">
+				<ul class="social-icon">
+					<li class="social-icon__item"><a class="social-icon__link"
+							href="https://www.linkedin.com/in/antonin-biron-748058155/" target="_blank"><ion-icon
+								name="logo-linkedin"></ion-icon></a></li>
+					<li class="social-icon__item"><a class="social-icon__link"
+							href="https://www.instagram.com/its_anto.brn/" target="_blank"><ion-icon
+								name="logo-instagram"></ion-icon></a></li>
+					<li class="social-icon__item"><a class="social-icon__link" href="https://github.com/Blatahead"
+							target="_blank"><ion-icon name="logo-github"></ion-icon></a></li>
+				</ul>
+				<p>Antonin</p>
+			</div>
+			<div class="social-raphael">
+				<ul class="social-icon">
+					<!-- <li class="social-icon__item"><a class="social-icon__link" href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li> -->
+					<li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/rafmy0/"
+							target="_blank"><ion-icon name="logo-instagram"></ion-icon></a></li>
+				</ul>
+				<p>Raphaël</p>
+			</div>
+		</div>
+		<div class="social-team">
+			<ul class="social-icon">
+				<li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/rafmy0/"
+						target="_blank"><ion-icon name="logo-instagram"></ion-icon></a></li>
+			</ul>
+			<p>LéoNoël</p>
+		</div>
+		<ul class="menu">
+			<li class="menu__item"><a class="menu__link" href="#top">Accueil</a></li>
+			<li class="menu__item"><a class="menu__link" href="#products">Produits</a></li>
+			<li class="menu__item"><a class="menu__link" href="#team">Equipe</a></li>
+			<li class="menu__item"><a class="menu__link" href="#history">Histoire</a></li>
+		</ul>
+		<p>&copy;2024 Antonin Biron | LéoNoël | All Rights Reserved</p>
+	</footer>
+
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+	<!-- <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script> -->
+	<script src="script.js"></script>
+</body>
+
+</html>
