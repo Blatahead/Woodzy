@@ -101,9 +101,178 @@
 			</div>
 		</div>
 	</div>
+	<div class="press">
+		<div class="press-container">
+			<p class="feedback"></p>
+			<p class="author"></p>
+			<div class="feedback-menu">
+
+			</div>
+		</div>
+		
+		<button class="feedback-button" role="button" id="feedback-button">Donner mon avis</button>
+	</div>
+	<div class="feedback-form" id="feedback-form">
+
+		<div class="container">
+			<span class="close" onclick="closeForm()">&times;</span>
+			<div id="welcomePage" class="page">
+				<h1>Bienvenue !</h1>
+				<button id="startButton" onclick="startForm()">Commencer</button>
+			</div>
+
+			<div id="formPageFeedback" class="page hidden">
+				<form id="feedbackForm">
+					<div class="question visible" id="firstQuestion" >
+						<label for="firstName">Quel est votre prénom ?<span>*</span></label>
+						<input type="text" id="firstName" required>
+					</div>
+
+					<div class="question hidden" id="lastQuestion">
+						<label for="lastName">Quel est votre nom de famille ?<span>*</span></label>
+						<input type="text" id="lastName" required>
+					</div>
+					<div class="question hidden" >
+						<label for="feedText">Quel est votre avis<span>*</span></label>
+						<input type="text" id="feedText" required>
+					</div>
+
+					<!-- <div class="question hidden">
+						<label for="email">Quelle est votre adresse e-mail ?<span>*</span></label>
+						<input type="email" id="email" required>
+						<p>Nous pourrons revenir vers vous pour la suite.</p>
+					</div> -->
+
+					<!-- <div class="question hidden" id="lastQuestion">
+						<label for="quantity">Combien de sapins souhaitez-vous précommander ?<span>*</span></label>
+						<select id="quantity" required>
+							<option value="1">1 - 19,99€</option>
+							<option value="2">2 - 39,98€</option>
+							<option value="3">3 - 59,97€</option>
+						</select>
+						<p>Le prix est de 19,99 €/unité.</p>
+					</div> -->
+
+					<!-- <div class="question hidden" >
+						<label for="postalCode">Quel est votre code postal ?<span>*</span></label>
+						<input type="text" id="postalCode" pattern="[0-9]{5}" required>
+					</div> -->
+
+					<div class="navigation">
+						<button id="previousButton" type="button" onclick="previousQuestion()">Précédent</button>
+						<button id="continueButton" type="button" onclick="nextQuestion()">Continuer</button>
+						<button id="submitButtonFeedback" type="submit" class="hidden">Submit</button>
+					</div>
+				</form>
+			</div>
+
+			<div id="confirmationPageFeedback" class="page hidden">
+				<h2>Merci ! Votre précommande a été envoyée avec succès.</h2>
+			</div>
+		</div>
+	</div>
+	
+	<!-- <div id="feedback-grip">F</div>
+<div id="feedback-panel">
+  <div class="feedbackit-form-elements">
+    <br/>
+    <div style="padding: 15px; text-align: center;">This can be a form!</div>
+    <div style="padding: 15px; text-align: center; cursor: pointer;" id="close-link">Close me!</div>
+    <br/>
+  </div>
+</div>
+
+<script src="http://code.jquery.com/jquery-1.11.0.js"></script>
+<script>
+  var slider = $('#feedback-grip,#feedback-panel');
+  var menu_open = false;
+
+  function toggleMenu() {
+    if(menu_open) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  }
+  function openMenu(){
+    $("#feedback-grip").addClass("feedback-grip-open");
+    $("#feedback-panel").addClass("feedback-panel-open");
+    menu_open = true;
+  }
+  function closeMenu(){
+    $("#feedback-grip").removeClass("feedback-grip-open");
+    $("#feedback-panel").removeClass("feedback-panel-open"); 
+    menu_open = false;
+  }
+    
+  $(document).ready(function(){
+    slider.css( "display", 'block');
+    $("#feedback-grip").bind('click', function(){
+      toggleMenu();
+  	});
+    $("#close-link").bind('click', function(){
+      toggleMenu();
+  	});
+  });
+</script>
+
+<style>
+  #feedback-grip {
+    position: fixed;
+    top: 25%;
+    right: 0;
+    display:none;
+    z-index:1000;
+  }
+  #feedback-grip:hover {
+    cursor:pointer;
+  }  
+  #feedback-panel {
+    position: fixed;
+    top: 25%;
+    right: -250px;
+    width: 250px !important;
+    z-index:1000;
+  }
+  .feedback-grip-open {
+    right: 250px !important;
+  }
+  .feedback-panel-open {
+    right: 0 !important;
+  }
+</style>
+
+<style>
+  #feedback-grip {
+    width: 35px;
+    padding: 12px 0;
+    text-align: center;
+    background: #efefef;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-border-radius:5px 0 0 5px;
+    -moz-border-radius:5px 0 0 5px;
+    border-radius:5px 0 0 5px;
+  }
+  
+  #feedback-panel {
+    background: #dedede;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    text-align: left;
+    -webkit-border-radius: 0 0 0 5px;
+    -moz-border-radius: 0 0 0 5px;
+    border-radius: 0 0 0 5px;
+  }
+ </style>  -->
+
 	<div class="timeline2">
 		<div id="cercle"></div>
-		<div id="line"></div>
+		<div id="line-first-event"></div>
 		<div id="cercle"></div>
 		<div id="line-event"></div>
 		<div id="cercle"></div>
@@ -239,61 +408,7 @@
 	<!-- <div class="down-arrow-to-products">
 		<a href="#products"><i class="fas fa-tree down-arrow__icon" id="down-arrow-to-products"></i></a>
 	</div> -->
-	<div class="preorder-form" id="preorder-form">
-
-		<div class="container">
-			<span class="close" onclick="closeForm()">&times;</span>
-			<div id="welcomePage" class="page">
-				<h1>Bienvenue !</h1>
-				<button id="startButton" onclick="startForm()">Commencer</button>
-			</div>
-
-			<div id="formPage" class="page hidden">
-				<form id="preorderForm">
-					<div class="question visible" id="firstQuestion">
-						<label for="firstName">Quel est votre prénom ?<span>*</span></label>
-						<input type="text" id="firstName" required>
-					</div>
-
-					<div class="question hidden">
-						<label for="lastName">Quel est votre nom de famille ?<span>*</span></label>
-						<input type="text" id="lastName" required>
-					</div>
-
-					<div class="question hidden">
-						<label for="email">Quelle est votre adresse e-mail ?<span>*</span></label>
-						<input type="email" id="email" required>
-						<p>Nous pourrons revenir vers vous pour la suite.</p>
-					</div>
-
-					<div class="question hidden" id="lastQuestion">
-						<label for="quantity">Combien de sapins souhaitez-vous précommander ?<span>*</span></label>
-						<select id="quantity" required>
-							<option value="1">1 - 19,99€</option>
-							<option value="2">2 - 39,98€</option>
-							<option value="3">3 - 59,97€</option>
-						</select>
-						<p>Le prix est de 19,99 €/unité.</p>
-					</div>
-
-					<div class="question hidden">
-						<label for="postalCode">Quel est votre code postal ?<span>*</span></label>
-						<input type="text" id="postalCode" pattern="[0-9]{5}" required>
-					</div>
-
-					<div class="navigation">
-						<button id="previousButton" type="button" onclick="previousQuestion()">Précédent</button>
-						<button id="continueButton" type="button" onclick="nextQuestion()">Continuer</button>
-						<button id="submitButton" type="submit" class="hidden">Submit</button>
-					</div>
-				</form>
-			</div>
-
-			<div id="confirmationPage" class="page hidden">
-				<h2>Merci ! Votre précommande a été envoyée avec succès.</h2>
-			</div>
-		</div>
-	</div>
+	
 	
 	
 	<div class="history" id="history">

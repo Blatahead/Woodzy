@@ -59,27 +59,27 @@ function closePopup() {
 
 // formulaire
 document.addEventListener('DOMContentLoaded', function () {
-	const preorderButton = document.getElementById("preorder-button");
-	const preorderForm = document.getElementById('preorder-form');
+	const feedbackButton = document.getElementById("feedback-button");
+	const feedbackForm = document.getElementById('feedback-form');
 
-	preorderButton.addEventListener('click', function () {
-		preorderForm.style.display = 'block';
+	feedbackButton.addEventListener('click', function () {
+		feedbackForm.style.display = 'block';
 
 		setTimeout(() => {
-			preorderForm.classList.add('visible');
+			feedbackForm.classList.add('visible');
 		}, 10);
 	});
 });
 
 function closeForm() {
 	setTimeout(() => {
-		const divToHide = document.getElementById('preorder-form');
+		const divToHide = document.getElementById('feedback-form');
 		if (divToHide) {
 			divToHide.classList.remove('show', 'visible');
 		}
 	}, 10);
 	setTimeout(() => {
-		const divToHide = document.getElementById('preorder-form');
+		const divToHide = document.getElementById('feedback-form');
 		divToHide.style.display = 'none';
 	}, 1000);
 }
@@ -87,7 +87,7 @@ function closeForm() {
 
 function startForm() {
 	document.getElementById('welcomePage').classList.add('hidden');
-	document.getElementById('formPage').classList.remove('hidden');
+	document.getElementById('formPageFeedback').classList.remove('hidden');
 	document.getElementById('welcomePage').style.display = 'none';
 	document.getElementById('firstName').focus();
 }
@@ -113,7 +113,7 @@ function nextQuestion() {
 	});
 
 	if (!allFieldsFilled) {
-		// Afficher un message d'erreur
+		// Error message
 		return;
 	}
 
@@ -135,7 +135,7 @@ function nextQuestion() {
 			nextQuestion.classList.add('visible', 'slide-in');
 			nextQuestion.querySelector('input, select').focus();
 			document.getElementById('continueButton').classList.add('hidden');
-			document.getElementById('submitButton').classList.remove('hidden');
+			document.getElementById('submitButtonFeedback').classList.remove('hidden');
 		}, 500);
 
 	}
@@ -161,7 +161,7 @@ function previousQuestion() {
 			previousQuestion.classList.add('visible', 'slide-in');
 			previousQuestion.querySelector('input, select').focus();
 			if (!isLastQuestion) {
-				document.getElementById('submitButton').classList.add('hidden');
+				document.getElementById('submitButtonFeedback').classList.add('hidden');
 				document.getElementById('continueButton').classList.remove('hidden');
 			}
 		}, 500); // Attendre la fin de la transition

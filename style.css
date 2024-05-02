@@ -252,7 +252,6 @@ li a:hover {
     width: 2.5vw;
     height: 2.5vw;
     border-radius: 50%;
-    /* background: green; */
 	border: 4px solid #262626;
 }
 
@@ -264,6 +263,12 @@ li a:hover {
 
 #line-event{
 	height: 67.5vh;
+	width: 1px;
+	border: 2px solid #262626;
+}
+
+#line-first-event{
+	height: 85vh;
 	width: 1px;
 	border: 2px solid #262626;
 }
@@ -297,7 +302,6 @@ li a:hover {
 	position: relative;
 	width: 30%;
 	height: 87%;
-	/* background-color: #e9ecef; */
 	border-radius: 10px;
 	display: flex;
 	flex-direction: column;
@@ -342,6 +346,28 @@ li a:hover {
 	}
 }
 
+.press{
+	position: absolute;
+	top: 175vh;
+
+	width: 100%;
+	height: 30vh;
+}
+
+.press-container{
+	position: relative;
+
+	width: 50%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+
+	background-color: #007bff;
+
+}
+
+
+
 .timeline2{
 	position: absolute;
 	display: flex;
@@ -363,7 +389,7 @@ li a:hover {
 
 .products-container{
 	position: relative;
-	margin-top: 30vh;
+	margin-top: 75vh;
 	margin-right: auto;
 	margin-left: auto;
 	width: 70vw;
@@ -914,7 +940,7 @@ li a:hover {
 
 	}
 
-	.preorder-button{
+	.prefeedback-button{
 		width: fit-content;
 		font-size: 2vw;
 		height: 10vh;
@@ -1085,7 +1111,7 @@ li a:hover {
 	justify-content: center;
 }
 
-.preorder-form {
+.feedback-form {
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -1233,17 +1259,14 @@ select {
 	animation-name: slideOut;
 }
 
-.preorder-button {
+.feedback-button {
 	align-items: center;
-	background: #B7E4C7;
 	border: 0;
 	border-radius: 8px;
-	box-shadow: -10px -10px 30px 0 #d8f3dc, 10px 10px 30px 0 #1d0dca17;
 	box-sizing: border-box;
 	color: #2a1f62;
 	cursor: pointer;
 	display: flex;
-	font-family: "Cascadia Code", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
 	font-size: 1rem;
 	justify-content: center;
 	padding: 1vh;
@@ -1259,26 +1282,31 @@ select {
 	white-space: pre;
 	word-break: normal;
 	word-spacing: normal;
+
+	box-shadow: -5px -5px 10px 0 #c3d3ed,10px 10px 30px 0 #1d0dca17;
+	background-color: #c3d3ed;
+	font-family: "Unbounded", sans-serif;
+	width: max-content;
 }
 
-.preorder-button:hover {
+.feedback-button:hover {
 	background: #d8f3dc;
 	box-shadow: -15px -15px 30px 0 #d8f3dc, 15px 15px 30px 0 #1d0dca17;
 }
 
-#preorder-form {
+#feedback-form {
 	display: none;
 	opacity: 0;
 	transition: opacity 1s ease-in-out;
 }
 
-#preorder-form.visible {
+#feedback-form.visible {
 	transition: opacity 1s ease-in-out;
 	opacity: 1;
 }
 
 
-#submitButton,
+#submitButtonFeedback,
 #continueButton,
 #startButton,
 #previousButton {
@@ -1307,7 +1335,7 @@ select {
 	word-spacing: normal;
 }
 
-#submitButton:hover,
+#submitButtonFeedback:hover,
 #continueButton:hover,
 #startButton:hover,
 #previousButton:hover {
