@@ -168,3 +168,23 @@ function previousQuestion() {
 	}
 }
 
+// Récupérer l'élément SVG
+var svgElement = document.getElementById("svg_1");
+
+// Fonction pour gérer le défilement de la page
+window.addEventListener("scroll", function() {
+    // Calculer la distance parcourue vers le bas de la page
+    var scrollDistance = window.scrollY;
+
+    // Calculer l'opacité en fonction de la distance parcourue
+    // Vous pouvez ajuster ces valeurs selon vos préférences
+    var opacity = 1 - (scrollDistance / 150);
+
+    // Limiter l'opacité entre 0 et 1
+    opacity = Math.min(1, Math.max(0, opacity));
+
+    // Appliquer l'opacité à l'élément SVG
+    svgElement.style.opacity = opacity.toString();
+});
+
+

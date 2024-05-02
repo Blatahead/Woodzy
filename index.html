@@ -16,8 +16,8 @@
 </head>
 
 <body>
-	<header>
-		
+	<header >
+
 		<div class="nav-bar">
 			<p class="startup-name">Woodzy</p>
 			<div class="nav-logo"><img id="nav-logo" src="./img/logo_leonoel_ia.jpg" alt="Logo LeoNoel"></div>
@@ -33,6 +33,10 @@
 				<li><a href="#footer" onclick="CloseNavBar()">Contact</a></li>
 			</ul>
 		</div>
+		<svg viewBox="0 0 1440 72" id="svg_1"  >
+			<path d="m-0.67,13.67l47.99,-0.44c47.99,-0.47 123.94,-4.64 224.93,-9.39c100.98,-4.75 201.97,4.08 297.95,5.39c95.98,1.36 229.49,-9.81 325.47,-8.45c95.98,1.31 253.69,11.98 349.67,10.17c95.98,-1.78 119.37,-3.44 154.01,-5.94l41.31,-2.5l-1.67,-4.83l-47.99,0c-47.99,0 -143.97,0 -239.94,0c-95.98,0 -191.96,0 -287.93,0c-95.98,0 -191.96,0 -287.93,0c-95.98,0 -191.96,0 -287.93,0c-95.98,0 -191.96,0 -239.94,0l-47.99,0l0,16l0,0z" fill="#9eb9ec" fill-opacity="0.5" id="svg_1"/>
+		</svg>
+		
 	</header>
 	<div id="alerte">Profitez d'une meilleure expérience en mode portrait</div>
 	<div class="home-screen" id="home-screen">
@@ -72,67 +76,55 @@
 			<span style="--i:23;">s</span>
 		</div>
 	</div>
-	<!-- <div class="down-arrow-to-products">
-		<a href="#products"><i class="fas fa-tree down-arrow__icon" id="down-arrow-to-products"></i></a>
-	</div> -->
-	<div class="preorder-form" id="preorder-form">
-
-		<div class="container">
-			<span class="close" onclick="closeForm()">&times;</span>
-			<div id="welcomePage" class="page">
-				<h1>Bienvenue !</h1>
-				<button id="startButton" onclick="startForm()">Commencer</button>
+	<div class="spaceafterhome"></div>
+	<div class="timeline1">
+		<div id="cercle"></div>
+		<div id="line"></div>
+		<div id="cercle"></div>
+	</div>
+	<div class="seasons">
+		<div class="seasons-container">
+			<div class="season christmas">
+				<img src="/img/logo_leonoel_ia.jpg" alt="">
+				<h1>Noël</h1>
+				<p>Voir la collection</p>
 			</div>
-
-			<div id="formPage" class="page hidden">
-				<form id="preorderForm">
-					<div class="question visible" id="firstQuestion">
-						<label for="firstName">Quel est votre prénom ?<span>*</span></label>
-						<input type="text" id="firstName" required>
-					</div>
-
-					<div class="question hidden">
-						<label for="lastName">Quel est votre nom de famille ?<span>*</span></label>
-						<input type="text" id="lastName" required>
-					</div>
-
-					<div class="question hidden">
-						<label for="email">Quelle est votre adresse e-mail ?<span>*</span></label>
-						<input type="email" id="email" required>
-						<p>Nous pourrons revenir vers vous pour la suite.</p>
-					</div>
-
-					<div class="question hidden" id="lastQuestion">
-						<label for="quantity">Combien de sapins souhaitez-vous précommander ?<span>*</span></label>
-						<select id="quantity" required>
-							<option value="1">1 - 19,99€</option>
-							<option value="2">2 - 39,98€</option>
-							<option value="3">3 - 59,97€</option>
-						</select>
-						<p>Le prix est de 19,99 €/unité.</p>
-					</div>
-
-					<div class="question hidden">
-						<label for="postalCode">Quel est votre code postal ?<span>*</span></label>
-						<input type="text" id="postalCode" pattern="[0-9]{5}" required>
-					</div>
-
-					<div class="navigation">
-						<button id="previousButton" type="button" onclick="previousQuestion()">Précédent</button>
-						<button id="continueButton" type="button" onclick="nextQuestion()">Continuer</button>
-						<button id="submitButton" type="submit" class="hidden">Submit</button>
-					</div>
-				</form>
+			<div class="season halloween">
+				<img src="/img/logo_leonoel_ia.jpg" alt="">
+				<h1>Halloween</h1>
+				<p>Voir la collection</p>
 			</div>
-
-			<div id="confirmationPage" class="page hidden">
-				<h2>Merci ! Votre précommande a été envoyée avec succès.</h2>
+			<div class="season valentine">
+				<img src="/img/logo_leonoel_ia.jpg" alt="">
+				<h1>Saint Valentin</h1>
+				<p>Voir la collection</p>
 			</div>
 		</div>
 	</div>
+	<div class="timeline2">
+		<div id="cercle"></div>
+		<div id="line"></div>
+		<div id="cercle"></div>
+		<div id="line-event"></div>
+		<div id="cercle"></div>
+		<div id="line-event"></div>
+		<div id="cercle"></div>
+	</div>
 	<div class="products" id="products">
-		<div class="products-title">
-			<p id="products-title">Nos produits</p>
+		<div class="products-container">
+			<div class="christmas event">
+				<h1>Noël</h1>
+			</div>
+			<div class="halloween event">
+				<h1>Halloween</h1>
+
+			</div>
+			<div class="valentine event">
+				<h1>Saint Valentin</h1>
+
+			</div>
+		</div>
+		<!-- <div class="products-title">
 		</div>
 		<div class="grid">
 			<div class="card"><img src="./img/logo_leonoel_ia.jpg" class="logo_product" alt="">
@@ -161,8 +153,11 @@
 		</div>
 		<div class="down-arrow-to-team">
 			<a href="#team"><i class="fas fa-tree down-arrow__icon-to-team" id="down-arrow-to-team"></i></a>
-		</div>
+		</div> -->
 	</div>
+	<svg viewBox="0 0 1440 72" id="svg-end-products"  >
+		<path d="m-0.67,13.67l47.99,-0.44c47.99,-0.47 123.94,-4.64 224.93,-9.39c100.98,-4.75 201.97,4.08 297.95,5.39c95.98,1.36 229.49,-9.81 325.47,-8.45c95.98,1.31 253.69,11.98 349.67,10.17c95.98,-1.78 119.37,-3.44 154.01,-5.94l41.31,-2.5l-1.67,-4.83l-47.99,0c-47.99,0 -143.97,0 -239.94,0c-95.98,0 -191.96,0 -287.93,0c-95.98,0 -191.96,0 -287.93,0c-95.98,0 -191.96,0 -287.93,0c-95.98,0 -191.96,0 -239.94,0l-47.99,0l0,16l0,0z" fill="#9eb9ec" fill-opacity="0.5" id="svg_1"/>
+	</svg>
 	<div class="team" id="team">
 		<div class="team-title">
 			<p id="team-title">Notre équipe</p>
@@ -237,10 +232,70 @@
 				</section>
 			</div>
 		</div>
-		<div class="down-arrow-to-history">
+		<!-- <div class="down-arrow-to-history">
 			<a href="#history"><i class="fas fa-tree down-arrow__icon-to-history" id="down-arrow-to-history"></i></a>
+		</div> -->
+	</div>
+	<!-- <div class="down-arrow-to-products">
+		<a href="#products"><i class="fas fa-tree down-arrow__icon" id="down-arrow-to-products"></i></a>
+	</div> -->
+	<div class="preorder-form" id="preorder-form">
+
+		<div class="container">
+			<span class="close" onclick="closeForm()">&times;</span>
+			<div id="welcomePage" class="page">
+				<h1>Bienvenue !</h1>
+				<button id="startButton" onclick="startForm()">Commencer</button>
+			</div>
+
+			<div id="formPage" class="page hidden">
+				<form id="preorderForm">
+					<div class="question visible" id="firstQuestion">
+						<label for="firstName">Quel est votre prénom ?<span>*</span></label>
+						<input type="text" id="firstName" required>
+					</div>
+
+					<div class="question hidden">
+						<label for="lastName">Quel est votre nom de famille ?<span>*</span></label>
+						<input type="text" id="lastName" required>
+					</div>
+
+					<div class="question hidden">
+						<label for="email">Quelle est votre adresse e-mail ?<span>*</span></label>
+						<input type="email" id="email" required>
+						<p>Nous pourrons revenir vers vous pour la suite.</p>
+					</div>
+
+					<div class="question hidden" id="lastQuestion">
+						<label for="quantity">Combien de sapins souhaitez-vous précommander ?<span>*</span></label>
+						<select id="quantity" required>
+							<option value="1">1 - 19,99€</option>
+							<option value="2">2 - 39,98€</option>
+							<option value="3">3 - 59,97€</option>
+						</select>
+						<p>Le prix est de 19,99 €/unité.</p>
+					</div>
+
+					<div class="question hidden">
+						<label for="postalCode">Quel est votre code postal ?<span>*</span></label>
+						<input type="text" id="postalCode" pattern="[0-9]{5}" required>
+					</div>
+
+					<div class="navigation">
+						<button id="previousButton" type="button" onclick="previousQuestion()">Précédent</button>
+						<button id="continueButton" type="button" onclick="nextQuestion()">Continuer</button>
+						<button id="submitButton" type="submit" class="hidden">Submit</button>
+					</div>
+				</form>
+			</div>
+
+			<div id="confirmationPage" class="page hidden">
+				<h2>Merci ! Votre précommande a été envoyée avec succès.</h2>
+			</div>
 		</div>
 	</div>
+	
+	
 	<div class="history" id="history">
 		<div class="history-title">
 			<p id="history-title">Notre histoire</p>
