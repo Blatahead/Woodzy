@@ -435,7 +435,7 @@ li a:hover {
 	margin-top: 12vh;
 }
 
-.team {
+.team{
 	height: 205vh;
 	width: 100%;
 	font-family: "Unbounded", sans-serif;
@@ -443,7 +443,6 @@ li a:hover {
 	font-style: normal;
 	color: #262626;
 	text-decoration: none;
-	
 }
 
 .team-grid {
