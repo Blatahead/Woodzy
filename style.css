@@ -1,6 +1,34 @@
+/* 						CSS PLAN 
+
+		Général
+		Animations
+		Transitions
+		Hide and show gesture
+		Feedback from mails
+		Navigation Bar
+			Burger Menu
+		Timelines
+		Home page
+		Case Titles
+			Events Case
+			Products case
+			Team case
+			History case
+		Old products grid ---IN COMMENTS---
+		Footer
+		Responsive Media queries
+			Width
+			Height
+			Height & Width
+
+
+
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap');
 
+/* Général */
 * {
 	margin: 0;
 	box-sizing: border-box;
@@ -52,6 +80,121 @@ header {
 	top: 0;
 }
 
+::-webkit-scrollbar {
+	width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #d8f3dc;
+	border-radius: 10px;
+}
+
+/* Animations */
+
+@keyframes wave
+{
+	0%
+	{
+		transform: translateY(0px);
+	}
+	20%
+	{
+		transform: translateY(-10px);
+	}
+	40%, 100%
+	{
+		transform: translateY(0px);
+	}
+}
+
+@keyframes bounce {
+	0% {
+		bottom: 0;
+	}
+
+	50% {
+		bottom: 20px;
+	}
+
+	100% {
+		bottom: 0;
+	}
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateX(100%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideOut {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+	}
+
+	to {
+		opacity: 0;
+		transform: translateX(-100%);
+	}
+}
+
+/* Transitions */
+	/* Transition div between home & events case*/
+.spaceafterhome{
+	width: 100%;
+	height: 39.5vh;
+}
+	/* Blue wave transition below products */
+#svg-end-products{
+	width: 100%;
+	position: absolute;
+	top:439.5vh;
+}
+
+/* Hide and show gesture (works with script.js) */
+	/* Hide form questions and team (before apparition) */
+.hidden {
+	opacity: 0;
+	filter: blur(5px);
+	transform: translateX(-100%);
+	transition: all 2s;
+}
+
+	/* show form questions and team (apparition) */
+.show {
+	opacity: 1;
+	filter: blur(0);
+	transform: translateX(0);
+}
+
+/* Feedback from mails */
+.press{
+	position: absolute;
+	top: 175vh;
+
+	width: 100%;
+	height: 30vh;
+}
+
+.press-container{
+	position: relative;
+
+	width: 50%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+
+	background-color: #007bff;
+}
+
+/* navigation bar */
 .nav-bar {
 	width: 100%;
 	height: 100%;
@@ -117,7 +260,6 @@ li a:hover {
 	transition: opacity 0.7s;
 }
 
-
 #to-history,
 #to-products,
 #to-team,
@@ -125,15 +267,69 @@ li a:hover {
 	cursor: pointer;
 }
 
-::-webkit-scrollbar {
-	width: 0px;
+	/* Burger Menu */
+.burger-menu {
+	display: none;
 }
 
-::-webkit-scrollbar-thumb {
-	background: #d8f3dc;
-	border-radius: 10px;
+.burger-line {
+	display: block;
+	width: 30px;
+	height: 3px;
+	background-color: #1b4332;
+	margin: 5px 0;
 }
 
+/* Timelines */
+	/* Time Line 1 */
+.timeline1{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	left: 10%;
+	top: 92vh;
+	align-items: center;
+	z-index: 5;
+}
+
+#cercle {
+    width: 2.5vw;
+    height: 2.5vw;
+    border-radius: 50%;
+	border: 4px solid #262626;
+}
+
+#line{
+	height: 40vh;
+	width: 1px;
+	border: 2px solid #262626;
+}
+
+#line-event{
+	height: 67.5vh;
+	width: 1px;
+	border: 2px solid #262626;
+}
+
+	/* Timeline 2 */
+
+.timeline2{
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	right: 10%;
+	top: 137vh;
+	align-items: center;
+	z-index: 5;
+}
+
+#line-first-event{
+	height: 85vh;
+	width: 1px;
+	border: 2px solid #262626;
+}
+
+/* Home Page */
 .home-screen {
 	width: 100%;
 	height: 88vh;
@@ -145,18 +341,17 @@ li a:hover {
 	justify-content: space-evenly;
 	
 	margin-top: 12vh;
-	/* padding-bottom: 20vh ; */
 }
 
-.case-logo {
+.case-big-tree {
 	width: auto;
 	height: 50vh;
-}
 
-#image {
-	height: 100vh;
-	border-radius: 50%;
-	transform: translateY(-23%) rotateZ(5deg);
+	#image {
+		height: 100vh;
+		border-radius: 50%;
+		transform: translateY(-23%) rotateZ(5deg);
+	}
 }
 
 .text-welcome {
@@ -217,62 +412,40 @@ li a:hover {
 	animation-delay: calc(0.03s * var(--i));
 }
 
-@keyframes wave
-{
-	0%
-	{
-		transform: translateY(0px);
-	}
-	20%
-	{
-		transform: translateY(-10px);
-	}
-	40%, 100%
-	{
-		transform: translateY(0px);
-	}
-}
-
-.spaceafterhome{
+/* Case Titles */
+.history-title,
+.products-title,
+.team-title {
 	width: 100%;
-	height: 39.5vh;
+	height: 15vh;
 }
 
-.timeline1{
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	left: 10%;
-	top: 92vh;
-	align-items: center;
-	z-index: 5;
+#products-title {
+	font-size: 6vw;
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+	color: #b7e4c7;
 }
 
-#cercle {
-    width: 2.5vw;
-    height: 2.5vw;
-    border-radius: 50%;
-	border: 4px solid #262626;
+#team-title {
+	font-size: 7vw;
+	font-weight: 800;
+	text-align: center;
+	margin-top: 12vh;
 }
 
-#line{
-	height: 40vh;
-	width: 1px;
-	border: 2px solid #262626;
+#history-title {
+	font-size: 6vw;
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+
+	background-image: url('./img/wood_back.jpg');
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 
-#line-event{
-	height: 67.5vh;
-	width: 1px;
-	border: 2px solid #262626;
-}
-
-#line-first-event{
-	height: 85vh;
-	width: 1px;
-	border: 2px solid #262626;
-}
-
+/* Events case */
 .seasons{
 	position: absolute;
 	top: 115vh;
@@ -346,38 +519,7 @@ li a:hover {
 	}
 }
 
-.press{
-	position: absolute;
-	top: 175vh;
-
-	width: 100%;
-	height: 30vh;
-}
-
-.press-container{
-	position: relative;
-
-	width: 50%;
-	height: 100%;
-	margin-left: auto;
-	margin-right: auto;
-
-	background-color: #007bff;
-
-}
-
-
-
-.timeline2{
-	position: absolute;
-	display: flex;
-	flex-direction: column;
-	right: 10%;
-	top: 137vh;
-	align-items: center;
-	z-index: 5;
-}
-
+/* Products case */
 .products {
 	background-color: #c3d3ed;
 	width: 100%;
@@ -394,7 +536,6 @@ li a:hover {
 	margin-left: auto;
 	width: 70vw;
 	height: 75%;
-	/* background-color: #007bff; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
@@ -403,11 +544,11 @@ li a:hover {
 	div{
 		height: 30%;
 		width: 90%;
-		/* background-color: #1b4332; */
 	}
 }
 
 .event{
+	/* Big titles Noël, Halloween, St Valentin */
 	h1{
 		width: 80%;
 		text-align: center;
@@ -422,19 +563,7 @@ li a:hover {
 	}
 }
 
-#svg-end-products{
-	width: 100%;
-	position: absolute;
-	top:439.5vh;
-}
-
-#team-title {
-	font-size: 7vw;
-	font-weight: 800;
-	text-align: center;
-	margin-top: 12vh;
-}
-
+/* Team case */
 .team{
 	height: 205vh;
 	width: 100%;
@@ -503,51 +632,12 @@ li a:hover {
 	}
 }
 
-.hidden {
-	opacity: 0;
-	filter: blur(5px);
-	transform: translateX(-100%);
-	transition: all 2s;
-}
-
-.show {
-	opacity: 1;
-	filter: blur(0);
-	transform: translateX(0);
-}
-
+/* History case */
 .history {
 	width: auto;
 	height: 100vh;
 	background-color: #b7e4c7;
 }
-
-.history-title,
-.products-title,
-.team-title {
-	width: 100%;
-	height: 15vh;
-}
-
-#products-title {
-	font-size: 6vw;
-	font-family: 'Pacifico', cursive;
-	text-align: center;
-	color: #b7e4c7;
-}
-
-#history-title {
-	font-size: 6vw;
-	font-family: 'Pacifico', cursive;
-	text-align: center;
-
-	background-image: url('./img/wood_back.jpg');
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-}
-
-
 
 .history-text {
 	width: 100vw;
@@ -557,7 +647,6 @@ li a:hover {
 	display: flex;
 	flex-direction: column;
 	flex: auto;
-
 
 	p {
 		/* height: 50%; */
@@ -573,23 +662,8 @@ li a:hover {
 	}
 }
 
-@keyframes bounce {
-	0% {
-		bottom: 0;
-	}
-
-	50% {
-		bottom: 20px;
-	}
-
-	100% {
-		bottom: 0;
-	}
-}
-
-
-
-.grid {
+/* Old products grid */
+/* .grid {
 	width: 100%;
 	height: 70vh;
 
@@ -605,7 +679,6 @@ li a:hover {
 	border-radius: 30px;
 
 	background-image: url("./img/back\ product.png");
-	/* background-color: #F5F5FA; */
 	background-size: cover;
 	position: relative;
 	display: flex;
@@ -705,10 +778,9 @@ li a:hover {
 
 		transform: translateY(-5vh);
 	}
-}
+} */
 
-
-
+/* Footer */
 .footer {
 	position: relative;
 	width: 100%;
@@ -788,19 +860,8 @@ li a:hover {
 	text-align: center;
 }
 
-/* CSS pour le menu burger */
-.burger-menu {
-	display: none;
-}
-
-.burger-line {
-	display: block;
-	width: 30px;
-	height: 3px;
-	background-color: #1b4332;
-	margin: 5px 0;
-}
-
+/* Responsive Media queries */
+/* Width */
 @media screen and (max-width: 1024px) {
 	.home-screen {
 		flex-direction: column;
@@ -811,7 +872,7 @@ li a:hover {
 			aspect-ratio: initial;
 		}
 
-		.case-logo {
+		.case-big-tree {
 			height: fit-content;
 		}
 
@@ -831,8 +892,6 @@ li a:hover {
 }
 
 @media screen and (max-width: 940px) {
-
-
 	.burger-menu {
 		display: block;
 		position: absolute;
@@ -857,7 +916,6 @@ li a:hover {
 		font-size: 7vw;
 	}
 
-
 	.navbar-nav.active {
 		right: 0;
 	}
@@ -871,7 +929,7 @@ li a:hover {
 			aspect-ratio: initial;
 		}
 
-		.case-logo {
+		.case-big-tree {
 			height: fit-content;
 		}
 
@@ -892,7 +950,6 @@ li a:hover {
 	#history-title {
 		font-size: 15vw;
 	}
-
 
 	.grid {
 		flex-direction: column;
@@ -947,78 +1004,6 @@ li a:hover {
 	}
 }
 
-@media screen and (max-height: 830px) and (max-width: 500px) {
-	.home-screen {
-
-		.case-logo {
-			height: fit-content;
-		}
-
-		#title {
-			font-size: 7vw;
-			text-align: center;
-		}
-
-		#subtitle {
-			font-size: 3vw;
-			text-align: center;
-		}
-	}
-
-
-	.navbar-nav a {
-		font-size: 5vh;
-	}
-}
-
-@media screen and (max-height: 730px) {
-	.home-screen {
-		#logo {
-			width: 30vw;
-			height: 30vw;
-		}
-
-		.case-logo {
-			height: fit-content;
-		}
-
-		#title {
-			font-size: 7vw;
-			text-align: center;
-		}
-
-		#subtitle {
-			font-size: 3vw;
-			text-align: center;
-		}
-	}
-}
-
-@media screen and (max-height: 580px) {
-	.home-screen {
-		#logo {
-			width: 25vw;
-			height: 25vw;
-		}
-
-		.case-logo {
-			height: fit-content;
-		}
-
-		#title {
-			font-size: 7vw;
-			text-align: center;
-		}
-
-		#subtitle {
-			font-size: 3vw;
-			text-align: center;
-		}
-	}
-}
-
-
-
 @media screen and (max-width: 730px) {
 	.home-screen #logo {
 		width: 75vw;
@@ -1030,7 +1015,6 @@ li a:hover {
 	}
 
 	.team-grid {
-
 		margin-top: 0;
 		text-align: center;
 		height: fit-content;
@@ -1045,8 +1029,6 @@ li a:hover {
 
 			width: 95vw;
 			height: 120vw;
-
-
 		}
 
 		.antonin .hidden {
@@ -1098,8 +1080,87 @@ li a:hover {
 			justify-content: space-between;
 		}
 	}
-	
 }
+
+/* Height */
+@media screen and (max-height: 730px) {
+	.home-screen {
+		#logo {
+			width: 30vw;
+			height: 30vw;
+		}
+
+		.case-big-tree {
+			height: fit-content;
+		}
+
+		#title {
+			font-size: 7vw;
+			text-align: center;
+		}
+
+		#subtitle {
+			font-size: 3vw;
+			text-align: center;
+		}
+	}
+}
+
+@media screen and (max-height: 580px) {
+	.home-screen {
+		#logo {
+			width: 25vw;
+			height: 25vw;
+		}
+
+		.case-big-tree {
+			height: fit-content;
+		}
+
+		#title {
+			font-size: 7vw;
+			text-align: center;
+		}
+
+		#subtitle {
+			font-size: 3vw;
+			text-align: center;
+		}
+	}
+}
+
+/* Height & Width */
+@media screen and (max-height: 830px) and (max-width: 500px) {
+	.home-screen {
+		.case-big-tree {
+			height: fit-content;
+		}
+
+		#title {
+			font-size: 7vw;
+			text-align: center;
+		}
+
+		#subtitle {
+			font-size: 3vw;
+			text-align: center;
+		}
+	}
+
+	.navbar-nav a {
+		font-size: 5vh;
+	}
+}
+
+/* Forms */
+
+	/* Général Form */
+
+	/* Christmas Form */
+
+	/* Halloween Form */
+
+	/* Valentine's Form */
 
 #welcomePage {
 	display: flex;
@@ -1110,9 +1171,10 @@ li a:hover {
 	justify-content: center;
 }
 
-.feedback-form {
+.feedback-form, .feedback-christmas-form {
 	width: 100%;
 	height: 100%;
+	top: 150%;
 	position: absolute;
 	z-index: 999;
 }
@@ -1146,19 +1208,17 @@ li a:hover {
 	}
 }
 
-#formPage {
+#formPageFeedback, #formPageChristmasFeedback {
 	width: 100vw;
 }
 
-#preorderForm {
+#feedbackForm, #feedbackChristmasForm {
+	width: 100%;
+
 	.question {
 		height: 50%;
 		align-items: center;
 	}
-}
-
-#preorderForm {
-	width: 100%;
 }
 
 .page {
@@ -1216,32 +1276,6 @@ select {
 	margin-left: auto;
 }
 
-/* Animation pour les questions qui entrent */
-@keyframes slideIn {
-	from {
-		opacity: 0;
-		transform: translateX(100%);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateX(0);
-	}
-}
-
-/* Animation pour les questions qui sortent */
-@keyframes slideOut {
-	from {
-		opacity: 1;
-		transform: translateX(0);
-	}
-
-	to {
-		opacity: 0;
-		transform: translateX(-100%);
-	}
-}
-
 .question {
 	margin-left: 10vw;
 	margin-right: 10vw;
@@ -1258,7 +1292,7 @@ select {
 	animation-name: slideOut;
 }
 
-.feedback-button {
+.feedback-button, .feedback-christmas-button, .feedback-halloween-button, .feedback-valentines-button {
 	align-items: center;
 	border: 0;
 	border-radius: 8px;
@@ -1288,18 +1322,18 @@ select {
 	width: max-content;
 }
 
-.feedback-button:hover {
+.feedback-button:hover, .feedback-christmas-button:hover, .feedback-halloween-button:hover, .feedback-valentines-button:hover {
 	background: #d8f3dc;
 	box-shadow: -15px -15px 30px 0 #d8f3dc, 15px 15px 30px 0 #1d0dca17;
 }
 
-#feedback-form {
+#feedback-form, #feedback-christmas-form {
 	display: none;
 	opacity: 0;
 	transition: opacity 1s ease-in-out;
 }
 
-#feedback-form.visible {
+#feedback-form.visible, #feedback-christmas-form.visible {
 	transition: opacity 1s ease-in-out;
 	opacity: 1;
 }

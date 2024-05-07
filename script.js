@@ -61,6 +61,15 @@ function closePopup() {
 document.addEventListener('DOMContentLoaded', function () {
 	const feedbackButton = document.getElementById("feedback-button");
 	const feedbackForm = document.getElementById('feedback-form');
+	
+	const feedbackChristmasButton = document.getElementById("feedback-christmas-button");
+	const feedbackChristmasForm = document.getElementById('feedback-christmas-form');
+
+	const feedbackHalloweenButton = document.getElementById("feedback-halloween-button");
+	const feedbackHalloweenForm = document.getElementById('feedback-halloween-form');
+
+	const feedbackValentinesButton = document.getElementById("feedback-valentines-button");
+	const feedbackValentinesForm = document.getElementById('feedback-valentines-form');
 
 	feedbackButton.addEventListener('click', function () {
 		feedbackForm.style.display = 'block';
@@ -69,8 +78,35 @@ document.addEventListener('DOMContentLoaded', function () {
 			feedbackForm.classList.add('visible');
 		}, 10);
 	});
+
+	feedbackChristmasButton.addEventListener('click', function () {
+		feedbackChristmasForm.style.display = 'block';
+
+		setTimeout(() => {
+			feedbackChristmasForm.classList.add('visible');
+		}, 10);
+	});
+
+	feedbackHalloweenButton.addEventListener('click', function () {
+		feedbackHalloweenForm.style.display = 'block';
+
+		setTimeout(() => {
+			feedbackHalloweenForm.classList.add('visible');
+		}, 10);
+	});
+
+	feedbackValentinesButton.addEventListener('click', function () {
+		feedbackValentinesForm.style.display = 'block';
+
+		setTimeout(() => {
+			feedbackValentinesForm.classList.add('visible');
+		}, 10);
+	});
+
+
 });
 
+// en fois 4
 function closeForm() {
 	setTimeout(() => {
 		const divToHide = document.getElementById('feedback-form');
