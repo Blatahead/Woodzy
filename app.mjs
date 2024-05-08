@@ -19,63 +19,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
 
-/// Managing the number of orders ///
-// const numberOrderRef = ref(db, 'stats/numberOrders');
-// const ordernumberPromise = get(numberOrderRef).then((snapshot) => {
-// 	const numberOrders = snapshot.val() || 0;
-// 	return numberOrders + 1;
-// });
-
-// ordernumberPromise.then(ordernumber => {
-// 	console.log(ordernumber); 
-// 	document.getElementById("submitButton").addEventListener('click', function () {
-// 		event.preventDefault();
-
-// 		const date = new Date();
-// 		const currentDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
-// 		const defaultPaidOrder = false;
-
-// 		set(ref(db, 'users/' + document.getElementById('firstName').value + " " + document.getElementById('lastName').value + " " + document.getElementById('postalCode').value),
-// 			{
-// 				prenom: document.getElementById('firstName').value,
-// 				nom: document.getElementById('lastName').value,
-// 				email: document.getElementById('email').value,
-// 				quantity: document.getElementById('quantity').value,
-// 				postalCode: document.getElementById('postalCode').value,
-// 				dateEnvoi: currentDate,
-// 				orderNumber: ordernumber,
-// 				paidOrder: defaultPaidOrder
-// 			}).then(() => {
-// 				console.log("Données envoyées avec succès !");
-// 				document.getElementById('confirmationPage').classList.remove('hidden');
-// 				document.getElementById('formPage').style.display = 'none';
-
-// 				updateOrderCount(ordernumber);
-// 			}).then(() => {
-// 				setTimeout(() => {
-// 					const divToHide = document.getElementById('preorder-form');
-// 					if (divToHide) {
-// 						divToHide.classList.remove('show', 'visible');
-// 					}
-// 				}, 1500);
-// 			}).then(() => {
-// 				setTimeout(() => {
-// 					const divToHide = document.getElementById('preorder-form');
-// 					divToHide.style.display = 'none';
-// 				}, 3000);
-// 			}).catch(error => console.error("Erreur lors de l'envoi des données:", error));
-// 	});
-// });
-
-// function updateOrderCount(count) {
-// 	runTransaction(numberOrderRef, (currentData) => {
-// 		return count;
-// 	}).then(() => {
-// 		console.log("Compteur de commande mis à jour avec succès !");
-// 	}).catch(error => console.error("Erreur lors de la mise à jour du compteur de commande:", error));
-// }
-
-/// Managing the number of feedbacks ///
+/// Manage the number of general feedbacks ///
 const numberFeedbackRef = ref(db, 'stats/numberFeedbacks');
 const feedbacknumberPromise = get(numberFeedbackRef).then((snapshot) => {
 	const numberFeedbacks = snapshot.val() || 0;
@@ -89,19 +33,13 @@ feedbacknumberPromise.then(feedbacknumber => {
 
 		const date = new Date();
 		const currentDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
-		// const defaultPaidOrder = false; 
 
 		set(ref(db, 'feedbacks/' + document.getElementById('firstName').value+" "+document.getElementById('lastName').value),
 			{
 				firstname: document.getElementById('firstName').value,
 				lastname: document.getElementById('lastName').value,
 				feedback: document.getElementById('feedText').value,
-				// email: document.getElementById('email').value,
-				// quantity: document.getElementById('quantity').value,
-				// postalCode: document.getElementById('postalCode').value,
-				// dateEnvoi: currentDate,
 				feedbackNumber: feedbacknumber,
-				// paidOrder: defaultPaidOrder
 			}).then(() => {
 				console.log("Données envoyées avec succès !");
 				document.getElementById('confirmationPageFeedback').classList.remove('hidden');
@@ -130,4 +68,59 @@ function updateFeedbackCount(count) {
 	}).then(() => {
 		console.log("Compteur de feedbacks mis à jour avec succès !");
 	}).catch(error => console.error("Erreur lors de la mise à jour du compteur de feedback:", error));
+}
+
+/// Manage the number of christmas feedbacks ///
+const numberFeedbackChristmasRef = ref(db, 'stats/numberFeedbacks/numberChristmasFeedbacks/');
+const feedbackchristmasnumberPromise = get(numberFeedbackChristmasRef).then((snapshot) => {
+	const numberChristmasFeedbacks = snapshot.val() || 0;
+	return numberChristmasFeedbacks + 1;
+});
+
+feedbackchristmasnumberPromise.then(feedbackchristmasnumber => {
+	console.log(feedbackchristmasnumber); 
+	document.getElementById("submitButtonChristmas").addEventListener('click', function () {
+		event.preventDefault();
+
+		const date = new Date();
+		const currentDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
+		
+
+		set(ref(db, 'feedbacks/christmas/' + document.getElementById('firstNameChristmas').value+" "+document.getElementById('lastNameChristmas').value),
+			{
+				firstname: document.getElementById('firstNameChristmas').value,
+				lastname: document.getElementById('lastNameChristmas').value,
+				feedback: document.getElementById('feedTextChristmas').value,
+				dateEnvoi: currentDate,
+				feedbackchristmasNumber: feedbackchristmasnumber,
+			}).then(() => {
+				
+			}).then(() => {
+				console.log("Données envoyées avec succès !");
+				document.getElementById('confirmationPageFeedbackChristmas').classList.remove('hidden');
+				document.getElementById('formPageChristmasFeedback').style.display = 'none';
+
+				updateFeedbackChristmasCount(feedbackchristmasnumber);
+			}).then(() => {
+				setTimeout(() => {
+					const divToHide = document.getElementById('feedback-christmas-form');
+					if (divToHide) {
+						divToHide.classList.remove('show', 'visible');
+					}
+				}, 1500);
+			}).then(() => {
+				setTimeout(() => {
+					const divToHide = document.getElementById('feedback-christmas-form');
+					divToHide.style.display = 'none';
+				}, 3000);
+			}).catch(error => console.error("Erreur lors de l'envoi des données:", error));
+	});
+});
+
+function updateFeedbackChristmasCount(count) {
+	runTransaction(numberFeedbackChristmasRef, (currentData) => {
+		return count;
+	}).then(() => {
+		console.log("Compteur de feedbacks mis à jour avec succès !");
+	}).catch(error => console.error("Erreur lors de la mise à jour du compteur de feedback de noel:", error));
 }

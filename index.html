@@ -306,40 +306,40 @@
 			<a href="#team"><i class="fas fa-tree down-arrow__icon-to-team" id="down-arrow-to-team"></i></a>
 		</div> -->
 	</div>
-	<div class="feedback-christmas-form" id="feedback-christmas-form" style="--h:1;">
+	<div class="feedback-christmas-form" id="feedback-christmas-form">
 
 		<div class="container">
-			<span class="close" onclick="closeForm()">&times;</span>
-			<div id="welcomePage" class="page">
+			<span class="close" onclick="closeFormChristmas()">&times;</span>
+			<div id="welcomePageChristmas" class="page">
 				<h1>Bienvenue !</h1>
-				<button id="startButton" onclick="startForm()">Commencer</button>
+				<button id="startButtonChristmas" onclick="startFormChristmas()">Commencer</button>
 			</div>
 
 			<div id="formPageChristmasFeedback" class="page hidden">
 				<form id="feedbackChristmasForm">
-					<div class="question visible" id="firstQuestion" >
+					<div class="question visible" id="firstQuestionChristmas" >
 						<label for="firstName">Quel est votre prénom ?<span>*</span></label>
-						<input type="text" id="firstName" required>
+						<input type="text" id="firstNameChristmas" required>
 					</div>
 
-					<div class="question hidden" id="lastQuestion">
+					<div class="question hidden" id="lastQuestionChristmas">
 						<label for="lastName">Quel est votre nom de famille ?<span>*</span></label>
-						<input type="text" id="lastName" required>
+						<input type="text" id="lastNameChristmas" required>
 					</div>
 					<div class="question hidden" >
 						<label for="feedText">Quel est votre avis<span>*</span></label>
-						<input type="text" id="feedText" required>
+						<input type="text" id="feedTextChristmas" required>
 					</div>
 
 					<div class="navigation">
-						<button id="previousButton" type="button" onclick="previousQuestion()">Précédent</button>
-						<button id="continueButton" type="button" onclick="nextQuestion()">Continuer</button>
-						<button id="submitButtonFeedback" type="submit" class="hidden">Submit</button>
+						<button id="previousButtonChristmas" type="button" onclick="previousQuestion()">Précédent</button>
+						<button id="continueButtonChristmas" type="button" onclick="nextQuestionChristmas()">Continuer</button>
+						<button id="submitButtonChristmas" type="submit" class="hidden">Soumettre</button>
 					</div>
 				</form>
 			</div>
 
-			<div id="confirmationPageFeedback" class="page hidden">
+			<div id="confirmationPageFeedbackChristmas" class="page hidden">
 				<h2>Merci ! Votre précommande a été envoyée avec succès.</h2>
 			</div>
 		</div>

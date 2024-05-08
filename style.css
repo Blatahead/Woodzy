@@ -1162,7 +1162,7 @@ li a:hover {
 
 	/* Valentine's Form */
 
-#welcomePage {
+#welcomePage, #welcomePageChristmas {
 	display: flex;
 	flex-direction: column;
 	height: 50%;
@@ -1340,9 +1340,13 @@ select {
 
 
 #submitButtonFeedback,
+#submitButtonChristmas,
 #continueButton,
+#continueButtonChristmas,
 #startButton,
-#previousButton {
+#startButtonChristmas,
+#previousButton,
+#previousButtonChristmas {
 	align-items: center;
 	background: #4f9a76; 
 	border: 0;
@@ -1369,9 +1373,13 @@ select {
 }
 
 #submitButtonFeedback:hover,
+#submitButtonChristmas:hover,
 #continueButton:hover,
+#continueButtonChristmas:hover,
+#previousButton:hover,
+#previousButtonChristmas:hover,
 #startButton:hover,
-#previousButton:hover {
+#startButtonChristmas:hover{
 	background: #3c7459; 
 	box-shadow: -10px -10px 30px 0 #4f9a76, 15px 15px 30px 0 #29523f;
 	transition-duration: 0.4s

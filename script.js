@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-// en fois 4
+// Formulaire Général
 function closeForm() {
 	setTimeout(() => {
 		const divToHide = document.getElementById('feedback-form');
@@ -119,7 +119,6 @@ function closeForm() {
 		divToHide.style.display = 'none';
 	}, 1000);
 }
-
 
 function startForm() {
 	document.getElementById('welcomePage').classList.add('hidden');
@@ -173,7 +172,6 @@ function nextQuestion() {
 			document.getElementById('continueButton').classList.add('hidden');
 			document.getElementById('submitButtonFeedback').classList.remove('hidden');
 		}, 500);
-
 	}
 }
 
@@ -204,6 +202,76 @@ function previousQuestion() {
 	}
 }
 
+// Formulaire Noel
+function closeFormChristmas() {
+	setTimeout(() => {
+		const divToHide = document.getElementById('feedback-christmas-form');
+		if (divToHide) {
+			divToHide.classList.remove('show', 'visible');
+		}
+	}, 10);
+	setTimeout(() => {
+		const divToHide = document.getElementById('feedback-christmas-form');
+		divToHide.style.display = 'none';
+	}, 1000);
+}
+
+function startFormChristmas() {
+	document.getElementById('welcomePageChristmas').classList.add('hidden');
+	document.getElementById('formPageChristmasFeedback').classList.remove('hidden');
+	document.getElementById('welcomePageChristmas').style.display = 'none';
+	document.getElementById('firstNameChristmas').focus();
+}
+
+function nextQuestionChristmas() {
+	
+	const currentQuestion = document.getElementById("feedbackChristmasForm").querySelector('.question.visible');
+	const nextQuestion = currentQuestion.nextElementSibling;
+	console.log(nextQuestion)
+	// Vérifier si la question actuelle est la dernière question
+	const isLastQuestion = currentQuestion.id === 'lastQuestionChristmas';
+
+
+	// Vérifier si tous le champ obligatoir est rempli
+	const requiredInputs = currentQuestion.querySelectorAll('input[required], select[required]');
+	let allFieldsFilled = true;
+	requiredInputs.forEach(input => {
+		if (!input.value.trim()) {
+			allFieldsFilled = false;
+			input.classList.add('error');
+		} else {
+			input.classList.remove('error');
+		}
+	});
+
+	if (!allFieldsFilled) {
+		// Error message
+		return;
+	}
+
+	if (nextQuestion && !isLastQuestion) {
+		currentQuestion.classList.remove('visible', 'slide-in');
+		currentQuestion.classList.add('slide-out');
+		setTimeout(() => {
+			currentQuestion.classList.add('hidden');
+			nextQuestion.classList.remove('hidden', 'slide-out');
+			nextQuestion.classList.add('visible', 'slide-in');
+			nextQuestion.querySelector('input, select').focus();
+		}, 500);
+	} else if (nextQuestion && isLastQuestion) {
+		currentQuestion.classList.remove('visible', 'slide-in');
+		currentQuestion.classList.add('slide-out');
+		setTimeout(() => {
+			currentQuestion.classList.add('hidden');
+			nextQuestion.classList.remove('hidden', 'slide-out');
+			nextQuestion.classList.add('visible', 'slide-in');
+			nextQuestion.querySelector('input, select').focus();
+			document.getElementById('continueButtonChristmas').classList.add('hidden');
+			document.getElementById('submitButtonChristmas').classList.remove('hidden');
+		}, 500);
+	}
+}
+
 // Récupérer l'élément SVG
 var svgElement = document.getElementById("svg_1");
 
@@ -213,13 +281,11 @@ window.addEventListener("scroll", function() {
     var scrollDistance = window.scrollY;
 
     // Calculer l'opacité en fonction de la distance parcourue
-    // Vous pouvez ajuster ces valeurs selon vos préférences
     var opacity = 1 - (scrollDistance / 150);
 
     // Limiter l'opacité entre 0 et 1
     opacity = Math.min(1, Math.max(0, opacity));
 
-    // Appliquer l'opacité à l'élément SVG
     svgElement.style.opacity = opacity.toString();
 });
 
