@@ -155,7 +155,7 @@ function addFeedbacksToCarousel(feedbacks) {
     slide.classList.add('slide');
 
     const feedbackHTML = `
-      <div class="feedOnScreen" style="width: 100%; text-align: center;">
+      <div style="width: 100%; text-align: center;">
         <p>${feedback.firstname} ${feedback.lastname}</p>
         <p>${feedback.feedback}</p>
       </div>
