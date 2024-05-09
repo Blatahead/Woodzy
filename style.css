@@ -564,7 +564,7 @@ li a:hover {
 
 	.grid {
 		width: 100%;
-		height: 85%;
+		height: 100%;
 	
 		display: flex;
 		justify-content: space-evenly;
@@ -679,11 +679,76 @@ li a:hover {
 			text-decoration: none;
 			font-size: 1.8vw;
 			font-weight: 400;
-			/* color: #c3d3ed; */
+		}
+
+		#add-tree-button {
+
+			align-items: center;
+			border: 0;
+			border-radius: 8px;
+			box-sizing: border-box;
+			color: #2a1f62;
+			cursor: pointer;
+			display: flex;
+			font-size: 1rem;
+			justify-content: center;
+			padding: 0.5vh;
+			position: relative;
+			margin-left: auto;
+			margin-right: auto;
+			transform: translateY(-4vh);
+			text-align: left;
+			transition: .2s;
+			user-select: none;
+			-webkit-user-select: none;
+			touch-action: manipulation;
+			white-space: pre;
+			word-break: normal;
+			word-spacing: normal;
+
+			box-shadow: -5px -5px 10px 0 rgb(209, 227, 253),10px 10px 30px 0 #1d0dca17;
+			background-color: #c3d3ed;
+			font-family: "Unbounded", sans-serif;
+			width: max-content;
+		}
+
+		#add-tree-button:hover{
+			transition-duration: 1s;
+			box-shadow: -5px -5px 10px 0 rgb(204, 214, 230),10px 10px 30px 0 #1d0dca17;
+			background-color: #e9ecef;
+		}
+
+		.christmasFeedback-carousel-container{
+			width: 100%;
+			align-items: center;
+			display: flex;
+			transform: translateY(-3vh);
+			
+
+			.christmasFeedback-carousel{
+				width: 100%;
+				height: 50%;
+				margin-top: auto;
+				margin-bottom: auto;
+			}
+
 			
 		}
 	}
 }
+.slick-list.draggable{
+	height: 100%;
+	width: 100%;
+
+	text-align: center;
+}
+
+.feedonscreen{
+	
+}
+
+
+
 
 
 /* Team case */
@@ -1003,6 +1068,8 @@ li a:hover {
 
 	}
 
+
+	/* doesn't exist anymore */
 	.prefeedback-button{
 		width: fit-content;
 		font-size: 2vw;
@@ -1313,7 +1380,7 @@ select {
 	position: relative;
 	margin-left: auto;
 	margin-right: auto;
-	transform: translateY(-5vh);
+	transform: translateY(-2vh);
 	text-align: left;
 	transition: .2s;
 	user-select: none;
@@ -1329,7 +1396,7 @@ select {
 	width: max-content;
 }
 
-.feedback-button:hover, .feedback-christmas-button:hover, .feedback-halloween-button:hover, .feedback-valentines-button:hover {
+.feedback-button:hover, .feedback-christmas-tree-button:hover, .feedback-halloween-button:hover, .feedback-valentines-button:hover {
 	background: #d8f3dc;
 	box-shadow: -15px -15px 30px 0 #d8f3dc, 15px 15px 30px 0 #1d0dca17;
 }
