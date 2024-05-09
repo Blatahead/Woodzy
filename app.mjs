@@ -27,7 +27,6 @@ const feedbacknumberPromise = get(numberFeedbackRef).then((snapshot) => {
 });
 
 feedbacknumberPromise.then(feedbacknumber => {
-	console.log(feedbacknumber); 
 	document.getElementById("submitButtonFeedback").addEventListener('click', function () {
 		event.preventDefault();
 
@@ -71,56 +70,119 @@ function updateFeedbackCount(count) {
 }
 
 /// Manage the number of christmas feedbacks ///
-const numberFeedbackChristmasRef = ref(db, 'stats/numberFeedbacks/numberChristmasFeedbacks/');
-const feedbackchristmasnumberPromise = get(numberFeedbackChristmasRef).then((snapshot) => {
-	const numberChristmasFeedbacks = snapshot.val() || 0;
-	return numberChristmasFeedbacks + 1;
+const numberFeedbackChristmasTreeRef = ref(db, 'stats/numberFeedbacks/numberChristmasFeedbacks/numberChristmasTreeFeedbacks');
+const feedbackchristmastreenumberPromise = get(numberFeedbackChristmasTreeRef).then((snapshot) => {
+	const numberChristmasTreeFeedbacks = snapshot.val() || 0;
+	return numberChristmasTreeFeedbacks + 1;
 });
 
-feedbackchristmasnumberPromise.then(feedbackchristmasnumber => {
-	console.log(feedbackchristmasnumber); 
-	document.getElementById("submitButtonChristmas").addEventListener('click', function () {
+feedbackchristmastreenumberPromise.then(feedbackchristmastreenumber => {
+	document.getElementById("submitButtonChristmasTree").addEventListener('click', function () {
 		event.preventDefault();
 
 		const date = new Date();
 		const currentDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()} ${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}:${date.getSeconds().toString().padStart(2, '0')}`;
 		
 
-		set(ref(db, 'feedbacks/christmas/' + document.getElementById('firstNameChristmas').value+" "+document.getElementById('lastNameChristmas').value),
+		set(ref(db, 'feedbacks/christmas/tree/' + document.getElementById('firstNameChristmasTree').value+" "+document.getElementById('lastNameChristmasTree').value),
 			{
-				firstname: document.getElementById('firstNameChristmas').value,
-				lastname: document.getElementById('lastNameChristmas').value,
-				feedback: document.getElementById('feedTextChristmas').value,
+				firstname: document.getElementById('firstNameChristmasTree').value,
+				lastname: document.getElementById('lastNameChristmasTree').value,
+				feedback: document.getElementById('feedTextChristmasTree').value,
 				dateEnvoi: currentDate,
-				feedbackchristmasNumber: feedbackchristmasnumber,
+				feedbackchristmastreeNumber: feedbackchristmastreenumber,
 			}).then(() => {
 				
 			}).then(() => {
 				console.log("Données envoyées avec succès !");
-				document.getElementById('confirmationPageFeedbackChristmas').classList.remove('hidden');
-				document.getElementById('formPageChristmasFeedback').style.display = 'none';
+				document.getElementById('confirmationPageFeedbackChristmasTree').classList.remove('hidden');
+				document.getElementById('formPageChristmasTreeFeedback').style.display = 'none';
 
-				updateFeedbackChristmasCount(feedbackchristmasnumber);
+				updateFeedbackChristmasTreeCount(feedbackchristmastreenumber);
 			}).then(() => {
 				setTimeout(() => {
-					const divToHide = document.getElementById('feedback-christmas-form');
+					const divToHide = document.getElementById('feedback-christmas-tree-form');
 					if (divToHide) {
 						divToHide.classList.remove('show', 'visible');
 					}
 				}, 1500);
 			}).then(() => {
 				setTimeout(() => {
-					const divToHide = document.getElementById('feedback-christmas-form');
+					const divToHide = document.getElementById('feedback-christmas-tree-form');
 					divToHide.style.display = 'none';
 				}, 3000);
 			}).catch(error => console.error("Erreur lors de l'envoi des données:", error));
 	});
 });
 
-function updateFeedbackChristmasCount(count) {
-	runTransaction(numberFeedbackChristmasRef, (currentData) => {
+function updateFeedbackChristmasTreeCount(count) {
+	runTransaction(numberFeedbackChristmasTreeRef, (currentData) => {
 		return count;
 	}).then(() => {
-		console.log("Compteur de feedbacks mis à jour avec succès !");
-	}).catch(error => console.error("Erreur lors de la mise à jour du compteur de feedback de noel:", error));
+		console.log("Compteur de feedbacks CT mis à jour avec succès !");
+	}).catch(error => console.error("Erreur lors de la mise à jour du compteur de feedback de sapin noel:", error));
+}
+
+//Carousel ChristmasTree
+// Référence à la base de données Firebase pour les avis de Noël
+const feedbacksChristmasTreeRef = ref(db, 'feedbacks/christmas/tree');
+
+// Récupération des avis de Noël depuis Firebase
+get(feedbacksChristmasTreeRef).then((snapshot) => {
+  if (snapshot.exists()) {
+    const feedbacks = [];
+    snapshot.forEach((childSnapshot) => {
+      const feedback = childSnapshot.val();
+      feedbacks.push(feedback);
+    });
+
+    // Une fois que les avis sont récupérés, tu peux les ajouter au carrousel
+    addFeedbacksToCarousel(feedbacks);
+  } else {
+    console.log("Aucun avis de Noël trouvé.");
+  }
+}).catch((error) => {
+  console.error("Erreur lors de la récupération des avis de Noël:", error);
+});
+
+// Fonction pour ajouter les avis au carrousel
+function addFeedbacksToCarousel(feedbacks) {
+  const feedbacksContainer = document.getElementById("products").querySelector('.christmasFeedback-carousel');
+
+  // Loop through each feedback and create a slide for it
+  feedbacks.forEach(feedback => {
+    const slide = document.createElement('div');
+    slide.classList.add('slide');
+
+    const feedbackHTML = `
+      <div>
+        <p>${feedback.firstname} ${feedback.lastname}</p>
+        <p>${feedback.feedback}</p>
+        <p>Date: ${feedback.dateEnvoi}</p>
+      </div>
+    `;
+
+    slide.innerHTML = feedbackHTML;
+    feedbacksContainer.appendChild(slide);
+  });
+
+  // Initialisation
+  $(document).ready(function(){
+	  $('.christmasFeedback-carousel').slick({
+		slidesToShow: Math.min(feedbacks.length, 1), // Affiche max 5 slides
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		infinite: true,
+		dots: true,
+		responsive: [
+		  {
+			breakpoint: 768,
+			settings: {
+			  slidesToShow: 1
+			}
+		  }
+		]
+	  });
+  })
 }

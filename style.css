@@ -561,7 +561,130 @@ li a:hover {
 		font-size: 5.5vw;
 		font-weight: 700;
 	}
+
+	.grid {
+		width: 100%;
+		height: 85%;
+	
+		display: flex;
+		justify-content: space-evenly;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+
+	.card {
+		width: 40%;
+		height: 100%;
+		border-radius: 30px;
+	
+		/* background-image: url("./img/back\ product.png"); */
+		background-color: e9ecef;
+		background-size: cover;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	
+		.img_product {
+			width: 60%;
+			height: 80%;
+			margin-left: auto;
+			margin-right: auto;
+			transition-duration: 1s;
+			cursor: pointer;
+		}
+	
+		.img_product:hover {
+			transform: scale(1.1);
+			transition-duration: 1s;
+		}
+	
+		.embed-container {
+			display: flex;
+	
+			.embed {
+				transform: translateY(-5vh);
+				margin-left: auto;
+				margin-right: auto;
+	
+				button {
+					color: #3c7459;
+				}
+			}
+		}
+	
+		.popup .sketchfab-embed-wrapper {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 80%;
+			height: 80%;
+		}
+	
+		.popup iframe {
+			border-radius: 20px;
+			width: 100%;
+			height: 100%;
+		}
+	
+		.popup {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			z-index: 9999;
+		}
+	
+		.popup .sketchfab-embed-wrapper {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	
+		.popup .close {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			font-size: 30px;
+			color: #fff;
+			cursor: pointer;
+		}
+	
+	
+		#in-creation {
+			filter: grayscale(100%);
+		}
+	
+		.logo_product {
+			position: absolute;
+			top: 1vh;
+			right: 1vh;
+			height: 7vh;
+			border-radius: 50%;
+		}
+	
+		.article-name {
+			text-align: center;
+			transform: translateY(-5vh);
+
+			font-family: "Unbounded", sans-serif;
+			font-optical-sizing: auto;
+			font-style: normal;
+			color: #262626;
+			text-decoration: none;
+			font-size: 1.8vw;
+			font-weight: 400;
+			/* color: #c3d3ed; */
+			
+		}
+	}
 }
+
 
 /* Team case */
 .team{
@@ -662,123 +785,7 @@ li a:hover {
 	}
 }
 
-/* Old products grid */
-/* .grid {
-	width: 100%;
-	height: 70vh;
 
-	display: flex;
-	justify-content: space-evenly;
-	margin-top: auto;
-	margin-bottom: auto;
-}
-
-.card {
-	width: auto;
-	height: 100%;
-	border-radius: 30px;
-
-	background-image: url("./img/back\ product.png");
-	background-size: cover;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-
-	.img_product {
-		width: 20vw;
-		height: 80%;
-		transition-duration: 1s;
-		cursor: pointer;
-	}
-
-	.img_product:hover {
-		transform: scale(1.1);
-		transition-duration: 1s;
-	}
-
-	.embed-container {
-		display: flex;
-
-		.embed {
-			transform: translateY(-5vh);
-			margin-left: auto;
-			margin-right: auto;
-
-			button {
-				color: #3c7459;
-			}
-		}
-	}
-
-	.popup .sketchfab-embed-wrapper {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: 80%;
-		height: 80%;
-	}
-
-	.popup iframe {
-		border-radius: 20px;
-		width: 100%;
-		height: 100%;
-	}
-
-	.popup {
-		display: none;
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-color: rgba(0, 0, 0, 0.5);
-		z-index: 9999;
-	}
-
-	.popup .sketchfab-embed-wrapper {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-	}
-
-	.popup .close {
-		position: absolute;
-		top: 20px;
-		right: 20px;
-		font-size: 30px;
-		color: #fff;
-		cursor: pointer;
-	}
-
-
-	#in-creation {
-		filter: grayscale(100%);
-	}
-
-	.logo_product {
-		position: absolute;
-		top: 1vh;
-		right: 1vh;
-		height: 10vh;
-		border-radius: 50%;
-	}
-
-	p {
-		font-size: 3vw;
-		font-family: 'Pacifico', cursive;
-		text-align: center;
-
-		background-image: url('./img/wood_back.jpg');
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
-
-		transform: translateY(-5vh);
-	}
-} */
 
 /* Footer */
 .footer {
@@ -1162,7 +1169,7 @@ li a:hover {
 
 	/* Valentine's Form */
 
-#welcomePage, #welcomePageChristmas {
+#welcomePage, #welcomePageChristmasTree {
 	display: flex;
 	flex-direction: column;
 	height: 50%;
@@ -1171,7 +1178,7 @@ li a:hover {
 	justify-content: center;
 }
 
-.feedback-form, .feedback-christmas-form {
+.feedback-form, .feedback-christmas-tree-form {
 	width: 100%;
 	height: 100%;
 	top: 150%;
@@ -1208,11 +1215,11 @@ li a:hover {
 	}
 }
 
-#formPageFeedback, #formPageChristmasFeedback {
+#formPageFeedback, #formPageChristmasTreeFeedback {
 	width: 100vw;
 }
 
-#feedbackForm, #feedbackChristmasForm {
+#feedbackForm, #feedbackChristmasTreeForm {
 	width: 100%;
 
 	.question {
@@ -1292,7 +1299,7 @@ select {
 	animation-name: slideOut;
 }
 
-.feedback-button, .feedback-christmas-button, .feedback-halloween-button, .feedback-valentines-button {
+.feedback-button, .feedback-christmas-tree-button, .feedback-halloween-button, .feedback-valentines-button {
 	align-items: center;
 	border: 0;
 	border-radius: 8px;
@@ -1327,26 +1334,26 @@ select {
 	box-shadow: -15px -15px 30px 0 #d8f3dc, 15px 15px 30px 0 #1d0dca17;
 }
 
-#feedback-form, #feedback-christmas-form {
+#feedback-form, #feedback-christmas-tree-form {
 	display: none;
 	opacity: 0;
 	transition: opacity 1s ease-in-out;
 }
 
-#feedback-form.visible, #feedback-christmas-form.visible {
+#feedback-form.visible, #feedback-christmas-tree-form.visible {
 	transition: opacity 1s ease-in-out;
 	opacity: 1;
 }
 
 
 #submitButtonFeedback,
-#submitButtonChristmas,
+#submitButtonChristmasTree,
 #continueButton,
-#continueButtonChristmas,
+#continueButtonChristmasTree,
 #startButton,
-#startButtonChristmas,
+#startButtonChristmasTree,
 #previousButton,
-#previousButtonChristmas {
+#previousButtonChristmasTree {
 	align-items: center;
 	background: #4f9a76; 
 	border: 0;
@@ -1373,13 +1380,13 @@ select {
 }
 
 #submitButtonFeedback:hover,
-#submitButtonChristmas:hover,
+#submitButtonChristmasTree:hover,
 #continueButton:hover,
-#continueButtonChristmas:hover,
+#continueButtonChristmasTree:hover,
 #previousButton:hover,
-#previousButtonChristmas:hover,
+#previousButtonChristmasTree:hover,
 #startButton:hover,
-#startButtonChristmas:hover{
+#startButtonChristmasTree:hover{
 	background: #3c7459; 
 	box-shadow: -10px -10px 30px 0 #4f9a76, 15px 15px 30px 0 #29523f;
 	transition-duration: 0.4s

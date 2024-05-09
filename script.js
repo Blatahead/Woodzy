@@ -59,11 +59,11 @@ function closePopup() {
 
 // formulaire
 document.addEventListener('DOMContentLoaded', function () {
-	const feedbackButton = document.getElementById("feedback-button");
-	const feedbackForm = document.getElementById('feedback-form');
+	// const feedbackButton = document.getElementById("feedback-button");
+	// const feedbackForm = document.getElementById('feedback-form');
 	
-	const feedbackChristmasButton = document.getElementById("feedback-christmas-button");
-	const feedbackChristmasForm = document.getElementById('feedback-christmas-form');
+	const feedbackChristmasTreeButton = document.getElementById("feedback-christmas-tree-button");
+	const feedbackChristmasTreeForm = document.getElementById('feedback-christmas-tree-form');
 
 	const feedbackHalloweenButton = document.getElementById("feedback-halloween-button");
 	const feedbackHalloweenForm = document.getElementById('feedback-halloween-form');
@@ -71,19 +71,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	const feedbackValentinesButton = document.getElementById("feedback-valentines-button");
 	const feedbackValentinesForm = document.getElementById('feedback-valentines-form');
 
-	feedbackButton.addEventListener('click', function () {
-		feedbackForm.style.display = 'block';
+	// feedbackButton.addEventListener('click', function () {
+	// 	feedbackForm.style.display = 'block';
+
+	// 	setTimeout(() => {
+	// 		feedbackForm.classList.add('visible');
+	// 	}, 10);
+	// });
+
+	feedbackChristmasTreeButton.addEventListener('click', function () {
+		feedbackChristmasTreeForm.style.display = 'block';
 
 		setTimeout(() => {
-			feedbackForm.classList.add('visible');
-		}, 10);
-	});
-
-	feedbackChristmasButton.addEventListener('click', function () {
-		feedbackChristmasForm.style.display = 'block';
-
-		setTimeout(() => {
-			feedbackChristmasForm.classList.add('visible');
+			feedbackChristmasTreeForm.classList.add('visible');
 		}, 10);
 	});
 
@@ -202,34 +202,34 @@ function previousQuestion() {
 	}
 }
 
-// Formulaire Noel
-function closeFormChristmas() {
+// Formulaire Sapin de Noel
+function closeFormChristmasTree() {
 	setTimeout(() => {
-		const divToHide = document.getElementById('feedback-christmas-form');
+		const divToHide = document.getElementById('feedback-christmas-tree-form');
 		if (divToHide) {
 			divToHide.classList.remove('show', 'visible');
 		}
 	}, 10);
 	setTimeout(() => {
-		const divToHide = document.getElementById('feedback-christmas-form');
+		const divToHide = document.getElementById('feedback-christmas-tree-form');
 		divToHide.style.display = 'none';
 	}, 1000);
 }
 
-function startFormChristmas() {
-	document.getElementById('welcomePageChristmas').classList.add('hidden');
-	document.getElementById('formPageChristmasFeedback').classList.remove('hidden');
-	document.getElementById('welcomePageChristmas').style.display = 'none';
-	document.getElementById('firstNameChristmas').focus();
+function startFormChristmasTree() {
+	document.getElementById('welcomePageChristmasTree').classList.add('hidden');
+	document.getElementById('formPageChristmasTreeFeedback').classList.remove('hidden');
+	document.getElementById('welcomePageChristmasTree').style.display = 'none';
+	document.getElementById('firstNameChristmasTree').focus();
 }
 
-function nextQuestionChristmas() {
+function nextQuestionChristmasTree() {
 	
-	const currentQuestion = document.getElementById("feedbackChristmasForm").querySelector('.question.visible');
+	const currentQuestion = document.getElementById("feedbackChristmasTreeForm").querySelector('.question.visible');
 	const nextQuestion = currentQuestion.nextElementSibling;
 	console.log(nextQuestion)
 	// Vérifier si la question actuelle est la dernière question
-	const isLastQuestion = currentQuestion.id === 'lastQuestionChristmas';
+	const isLastQuestion = currentQuestion.id === 'lastQuestionChristmasTree';
 
 
 	// Vérifier si tous le champ obligatoir est rempli
@@ -266,9 +266,36 @@ function nextQuestionChristmas() {
 			nextQuestion.classList.remove('hidden', 'slide-out');
 			nextQuestion.classList.add('visible', 'slide-in');
 			nextQuestion.querySelector('input, select').focus();
-			document.getElementById('continueButtonChristmas').classList.add('hidden');
-			document.getElementById('submitButtonChristmas').classList.remove('hidden');
+			document.getElementById('continueButtonChristmasTree').classList.add('hidden');
+			document.getElementById('submitButtonChristmasTree').classList.remove('hidden');
 		}, 500);
+	}
+}
+
+function previousQuestionChristmas() {
+	const currentQuestion = document.getElementById("feedbackChristmasTreeForm").querySelector('.question.visible');
+	const previousQuestion = currentQuestion.previousElementSibling;
+
+	// Vérifier si la question actuelle est la dernière question
+	const isLastQuestion = currentQuestion.id === 'lastQuestionChristmasTree';
+
+	// Vérifier si la question actuelle est la première question
+	const isFirstQuestion = currentQuestion.id === 'firstQuestionChristmasTree';
+
+
+	if (previousQuestion && !isFirstQuestion) {
+		currentQuestion.classList.remove('visible', 'slide-in');
+		currentQuestion.classList.add('slide-out');
+		setTimeout(() => {
+			currentQuestion.classList.add('hidden');
+			previousQuestion.classList.remove('hidden', 'slide-out');
+			previousQuestion.classList.add('visible', 'slide-in');
+			previousQuestion.querySelector('input, select').focus();
+			if (!isLastQuestion) {
+				document.getElementById('submitButtonChristmasTree').classList.add('hidden');
+				document.getElementById('continueButtonChristmasTree').classList.remove('hidden');
+			}
+		}, 500); // Attendre la fin de la transition
 	}
 }
 

@@ -12,10 +12,20 @@
 	<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<link rel="icon" type="image/png" href="./img/logo_leonoel_round.png">
+
+	
+	
+
+	<!-- <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+	
+
 	<script type="module" src="app.mjs"></script>
 </head>
 
 <body>
+	
 	<header >
 
 		<div class="nav-bar">
@@ -110,7 +120,7 @@
 			</div>
 		</div>
 		
-		<button class="feedback-button" role="button" id="feedback-button">Donner mon avis</button>
+		<!-- <button class="feedback-button" role="button" id="feedback-button">Donner mon avis</button> -->
 	</div>
 	
 	<div class="feedback-form" id="feedback-form">
@@ -263,8 +273,38 @@
 		<div class="products-container">
 			<div class="christmas event">
 				<h1>Noël</h1>
-				<button class="feedback-christmas-button" role="button" id="feedback-christmas-button">Donner mon avis</button>
-				
+				<div class="grid">
+					<div class="card"><img src="./img/logo_leonoel_ia.jpg" class="logo_product" alt="">
+						<img src="./img/product_tree.png" class="img_product" alt="">
+						<div id="popup" class="popup">
+							<span class="close" onclick="closePopup()">&times;</span>
+							<div class="sketchfab-embed-wrapper">
+								<iframe title="ChristmasTree" frameborder="0" allowfullscreen mozallowfullscreen="true"
+									webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
+									xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
+									src="https://sketchfab.com/models/11e6289058a74dc4951ce481c0c31314/embed">
+								</iframe>
+							</div>
+						</div>
+						<p class="article-name">Sapin de Noël</p>
+						<button class="preorder-button" role="button" id="add-tree-button">Pré commander</button>
+						<div class="christmasFeedback-carousel-container">
+							<div class="christmasFeedback-carousel">
+								
+							</div>
+						</div>
+						  
+						<button class="feedback-christmas-tree-button" role="button" id="feedback-christmas-tree-button">Donner mon avis</button>
+					</div>
+					<div class="card"><img src="./img/logo_leonoel_ia.jpg" class="logo_product" alt="">
+						<img src="./img/product_tree.png" class="img_product" id="in-creation" alt="">
+						<p class="article-name">Boule de flocons</p>
+						<button class="preorder-button" role="button" id="add-snow-button">Pré commander</button>
+						
+						<button class="feedback-snow-button" role="button" id="feedback-snow-button">Donner mon avis</button>
+
+					</div>
+				</div>		
 			</div>
 			<div class="halloween event">
 				<h1>Halloween</h1>
@@ -277,69 +317,45 @@
 		</div>
 		<!-- <div class="products-title">
 		</div>
-		<div class="grid">
-			<div class="card"><img src="./img/logo_leonoel_ia.jpg" class="logo_product" alt="">
-				<img src="./img/product_tree.png" class="img_product" alt="">
-				<div id="popup" class="popup">
-					<span class="close" onclick="closePopup()">&times;</span>
-					<div class="sketchfab-embed-wrapper">
-						<iframe title="ChristmasTree" frameborder="0" allowfullscreen mozallowfullscreen="true"
-							webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
-							xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share
-							src="https://sketchfab.com/models/11e6289058a74dc4951ce481c0c31314/embed">
-						</iframe>
-					</div>
-				</div>
-				<button class="preorder-button" role="button" id="preorder-button">Pré commander</button>
-				<p>Sapin de Noël</p>
-			</div>
-			<div class="card"><img src="./img/logo_leonoel_ia.jpg" class="logo_product" alt=""><img
-					src="./img/product_tree.png" class="img_product" id="in-creation" alt="">
-				<p>En création</p>
-			</div>
-			<div class="card"><img src="./img/logo_leonoel_ia.jpg" class="logo_product" alt=""><img
-					src="./img/product_tree.png" class="img_product" id="in-creation" alt="">
-				<p>En création</p>
-			</div>
-		</div>
+		
 		<div class="down-arrow-to-team">
 			<a href="#team"><i class="fas fa-tree down-arrow__icon-to-team" id="down-arrow-to-team"></i></a>
 		</div> -->
 	</div>
-	<div class="feedback-christmas-form" id="feedback-christmas-form">
+	<div class="feedback-christmas-tree-form" id="feedback-christmas-tree-form">
 
 		<div class="container">
-			<span class="close" onclick="closeFormChristmas()">&times;</span>
-			<div id="welcomePageChristmas" class="page">
+			<span class="close" onclick="closeFormChristmasTree()">&times;</span>
+			<div id="welcomePageChristmasTree" class="page">
 				<h1>Bienvenue !</h1>
-				<button id="startButtonChristmas" onclick="startFormChristmas()">Commencer</button>
+				<button id="startButtonChristmasTree" onclick="startFormChristmasTree()">Commencer</button>
 			</div>
 
-			<div id="formPageChristmasFeedback" class="page hidden">
-				<form id="feedbackChristmasForm">
-					<div class="question visible" id="firstQuestionChristmas" >
+			<div id="formPageChristmasTreeFeedback" class="page hidden">
+				<form id="feedbackChristmasTreeForm">
+					<div class="question visible" id="firstQuestionChristmasTree" >
 						<label for="firstName">Quel est votre prénom ?<span>*</span></label>
-						<input type="text" id="firstNameChristmas" required>
+						<input type="text" id="firstNameChristmasTree" required>
 					</div>
 
-					<div class="question hidden" id="lastQuestionChristmas">
+					<div class="question hidden" id="lastQuestionChristmasTree">
 						<label for="lastName">Quel est votre nom de famille ?<span>*</span></label>
-						<input type="text" id="lastNameChristmas" required>
+						<input type="text" id="lastNameChristmasTree" required>
 					</div>
 					<div class="question hidden" >
 						<label for="feedText">Quel est votre avis<span>*</span></label>
-						<input type="text" id="feedTextChristmas" required>
+						<input type="text" id="feedTextChristmasTree" required>
 					</div>
 
 					<div class="navigation">
-						<button id="previousButtonChristmas" type="button" onclick="previousQuestion()">Précédent</button>
-						<button id="continueButtonChristmas" type="button" onclick="nextQuestionChristmas()">Continuer</button>
-						<button id="submitButtonChristmas" type="submit" class="hidden">Soumettre</button>
+						<button id="previousButtonChristmasTree" type="button" onclick="previousQuestionChristmasTree()">Précédent</button>
+						<button id="continueButtonChristmasTree" type="button" onclick="nextQuestionChristmasTree()">Continuer</button>
+						<button id="submitButtonChristmasTree" type="submit" class="hidden">Soumettre</button>
 					</div>
 				</form>
 			</div>
 
-			<div id="confirmationPageFeedbackChristmas" class="page hidden">
+			<div id="confirmationPageFeedbackChristmasTree" class="page hidden">
 				<h2>Merci ! Votre précommande a été envoyée avec succès.</h2>
 			</div>
 		</div>
@@ -505,6 +521,10 @@
 
 	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
 	<!-- <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script> -->
