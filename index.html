@@ -12,7 +12,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<link rel="icon" type="image/png" href="./img/logo_leonoel_round.png">
-
+	<script src="https://kit.fontawesome.com/384f40995a.js" crossorigin="anonymous"></script>
 	
 	
 
@@ -22,12 +22,12 @@
 	
 
 	<script type="module" src="app.mjs"></script>
+	<script src="addtocart.js" defer></script>
 </head>
 
 <body>
 	
 	<header >
-
 		<div class="nav-bar">
 			<p class="startup-name">Woodzy</p>
 			<div class="nav-logo"><img id="nav-logo" src="./img/logo_leonoel_ia.jpg" alt="Logo LeoNoel"></div>
@@ -162,19 +162,33 @@
 		</div>
 	</div>
 	
-	<!-- <div id="feedback-grip">F</div>
-<div id="feedback-panel">
-  <div class="feedbackit-form-elements">
-    <br/>
-    <div style="padding: 15px; text-align: center;">This can be a form!</div>
-    <div style="padding: 15px; text-align: center; cursor: pointer;" id="close-link">Close me!</div>
-    <br/>
-  </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+	<div id="feedback-grip"><i class="fa-solid fa-cart-shopping"></i><p id="cart-counter">0</p></div>
+	<div class="cart-container">
+		<div id="root"></div>
+		<div class="sidebar">
+			<div class="head"><p>Mon panier</p></div>
+			<div id="cartItem">Votre panier est vide</div>
+			<div class="foot">
+				<h3>Total</h3>
+				<h2 id="total">€ 0,00</h2>
+			</div>
+		</div>
+	</div>
 
 <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
 <script>
-  var slider = $('#feedback-grip,#feedback-panel');
+  var slider = $('#feedback-grip,.cart-container');
   var menu_open = false;
 
   function toggleMenu() {
@@ -186,12 +200,12 @@
   }
   function openMenu(){
     $("#feedback-grip").addClass("feedback-grip-open");
-    $("#feedback-panel").addClass("feedback-panel-open");
+    $(".cart-container").addClass("feedback-panel-open");
     menu_open = true;
   }
   function closeMenu(){
     $("#feedback-grip").removeClass("feedback-grip-open");
-    $("#feedback-panel").removeClass("feedback-panel-open"); 
+    $(".cart-container").removeClass("feedback-panel-open"); 
     menu_open = false;
   }
     
@@ -200,44 +214,121 @@
     $("#feedback-grip").bind('click', function(){
       toggleMenu();
   	});
-    $("#close-link").bind('click', function(){
-      toggleMenu();
-  	});
   });
 </script>
 
 <style>
   #feedback-grip {
     position: fixed;
-    top: 25%;
+    top: 20%;
     right: 0;
     display:none;
     z-index:1000;
   }
+
   #feedback-grip:hover {
     cursor:pointer;
   }  
-  #feedback-panel {
+  .cart-container {
     position: fixed;
-    top: 25%;
+    top: 20%;
+	display: flex;
     right: -250px;
     width: 250px !important;
+	height: fit-content;
     z-index:1000;
+	background-color: #e9ecef;
   }
+
+  #cart-counter{
+	position: absolute;
+	top: 0;
+	right: 0;
+  }
+
+  #root{
+	width: 60%;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-gap: 20px;
+  }
+
+  .sidebar{
+	width: 100%;
+	border-radius: 0 0 0 5px;
+	background-color: transparent;
+	padding: 15px;
+	text-align: center;
+  }
+
+  .head{
+	background-color: #c3d3ed;
+	border-radius: 3px;
+	height: 20%;
+	padding: 10px;
+	margin-bottom: 10%;
+	display: flex;
+	align-items: center;
+  }
+
+  .foot{
+	display: flex;
+	justify-content: space-between;
+	margin: 10% 0px;
+	padding: 5% 0px;
+	border-top: 1px solid black;
+  }
+
+  .cart-item{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+	background-color: white;
+	border-bottom: 1px solid #aaa;
+	border-radius: 3px;
+	margin: 10px 10px;
+  }
+
+.row-img{
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.rowimg{
+	max-width: 43px;
+	max-height: 43px;
+	border-radius: 50%;
+}
+.fa-trash:hover{
+	cursor: pointer;
+	color: #333;
+}
+
   .feedback-grip-open {
     right: 250px !important;
   }
   .feedback-panel-open {
     right: 0 !important;
   }
+
+  .fa-cart-shopping{
+	width: fit-content;
+	height: fit-content;
+  }
 </style>
 
 <style>
   #feedback-grip {
-    width: 35px;
-    padding: 12px 0;
+    width: fit-content;
+	height: fit-content;
+    padding: 0.5vw;
     text-align: center;
-    background: #efefef;
+    background: #e9ecef;
     -webkit-transition-duration: 0.3s;
     -moz-transition-duration: 0.3s;
     -o-transition-duration: 0.3s;
@@ -247,8 +338,7 @@
     border-radius:5px 0 0 5px;
   }
   
-  #feedback-panel {
-    background: #dedede;
+  .cart-container {
     -webkit-transition-duration: 0.3s;
     -moz-transition-duration: 0.3s;
     -o-transition-duration: 0.3s;
@@ -258,7 +348,18 @@
     -moz-border-radius: 0 0 0 5px;
     border-radius: 0 0 0 5px;
   }
- </style>  -->
+ </style> 
+
+
+
+
+
+
+
+
+
+
+
 
 	<div class="timeline2">
 		<div id="cercle"></div>
@@ -287,7 +388,7 @@
 							</div>
 						</div>
 						<p class="article-name">Sapin de Noël</p>
-						<button class="preorder-button" role="button" id="add-tree-button">Ajouter au panier</button>
+						<button class="preorder-button" role="button" id="add-tree-button" onclick="addtocart(0)">Ajouter au panier</button>
 						<div class="christmasFeedback-carousel-container">
 							<div class="christmasFeedback-carousel">
 								
