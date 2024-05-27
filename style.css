@@ -379,7 +379,8 @@ li a:hover {
 }
 
 .wavy-button{
-	position: absolute;
+	position: fixed;
+	opacity: 0.5;
 	bottom: 2vh;
 	align-items: center;
 	border-radius: 8px;
@@ -401,6 +402,10 @@ li a:hover {
 	width: max-content;
 	word-break: normal;
 	word-spacing: normal;
+}
+
+.wavy-button:hover {
+	opacity: 1;
 }
 
 .wavy-button span{
